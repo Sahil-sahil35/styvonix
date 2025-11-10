@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import productsData from '/public/data/products.json';
+import { client } from '../lib/sanityClient';
 
-const allProducts = productsData.products;
-const filters = productsData.filters;
+const productsQuery = `*[_type == "product"]`;
+const filtersQuery = `*[_type == "filters"][0]`;
+
+const allProducts = await client.fetch(productsQuery);
+const filters = await client.fetch(filtersQuery);
 
 // Helper function to render price, same as in your [slug].astro
 function renderPrice(p) {

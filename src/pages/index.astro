@@ -1,16 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import sitedata from '/public/data/data.json';
 import Testimonials from '../components/Testimonials.astro';
-import product from '/public/data/products.json';
+import { client } from '../lib/sanityClient';
 
-const features = sitedata.features;
-const herodata = sitedata.hero.stats;
-const testimonials = sitedata.testimonials;
-const categories = sitedata.categories;
-const bestSellers = product.products.slice(0, 7);
+const siteDataQuery = `*[_type == "site"][0]`;
+const featuresQuery = `*[_type == "features"][0]`;
+const heroDataQuery = `*[_type == "hero"][0]`;
+const testimonialsQuery = `*[_type == "testimonials"][0]`;
+const categoriesQuery = `*[_type == "categories"][0]`;
+const bestSellersQuery = `*[_type == "product"] | order(_createdAt asc)[0..6]`;
 
+const siteData = await client.fetch(siteDataQuery);
+const featuresData = await client.fetch(featuresQuery);
+const heroData = await client.fetch(heroDataQuery);
+const testimonialsData = await client.fetch(testimonialsQuery);
+const categoriesData = await client.fetch(categoriesQuery);
+const bestSellers = await client.fetch(bestSellersQuery);
 
+const features = featuresData.items;
+const herodata = heroData.stats;
+const testimonials = testimonialsData.items;
+const categories = categoriesData.items;
 
 ---
 

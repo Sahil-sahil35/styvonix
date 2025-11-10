@@ -1,25 +1,25 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { client, urlFor } from "../../lib/sanityClient";
 
 // Make this page fully static at build time
 export const prerender = true;
 
-// Import your JSON (kept at /public/data/products.json as in your project).
-// Astro can import JSON at build time; if your setup differs, move the file to `src/data/products.json` and update the import path below.
-import productsJson from "/public/data/products.json";
-import sitedata from "/public/data/data.json";
-
-// Build every /product/[slug] path from the JSON
-export function getStaticPaths() {
-  const all = productsJson.products || [];
-  return all.map((p) => ({
+// Build every /product/[slug] path from Sanity
+export async function getStaticPaths() {
+  const query = `*[_type == "product" && defined(slug.current)]{ "slug": slug.current }`;
+  const products = await client.fetch(query);
+  return products.map((p) => ({
     params: { slug: p.slug },
-    props: { product: p, allProducts: all },
   }));
 }
 
-// Receive the matched product + the full list (for "Similar Products")
-const { product, allProducts } = Astro.props;
+const { slug } = Astro.params;
+const productQuery = `*[_type == "product" && slug.current == $slug][0]`;
+const allProductsQuery = `*[_type == "product"]`;
+
+const product = await client.fetch(productQuery, { slug });
+const allProducts = await client.fetch(allProductsQuery);
 
 // Price formatting (mirrors your DOM logic)
 function renderPrice(p) {
@@ -58,8 +58,8 @@ const isFilterMedia = Array.isArray(product.category)
   : String(product.category || "").toLowerCase() === "filter media";
 
 // Safe helpers
-const firstImage = Array.isArray(product.images) && product.images.length ? product.images[0] : "";
-const images = Array.isArray(product.images) ? product.images : (product.images ? [product.images] : []);
+const firstImage = Array.isArray(product.images) && product.images.length ? urlFor(product.images[0]).url() : "";
+const images = Array.isArray(product.images) ? product.images.map(image => urlFor(image).url()) : [];
 const specsEntries = product.specs ? Object.entries(product.specs) : [];
 const documents = Array.isArray(product.documents) ? product.documents : [];
 const tags = Array.isArray(product.tags) ? product.tags : [];

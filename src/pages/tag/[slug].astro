@@ -1,47 +1,53 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import productsData from '/public/data/products.json';
-import servicesData from '/public/data/services.json';
-import blogData from '/public/data/blog.json';
+import { client } from '../../lib/sanityClient';
 
 export const prerender = true;
 
-// Replace the entire getStaticPaths function in src/pages/tag/[slug].astro
+export async function getStaticPaths() {
+  const productTagsQuery = `*[_type == "product"].tags[defined(@)]`;
+  const blogTagsQuery = `*[_type == "blog"].tags[defined(@)]`;
+  const servicesTagsQuery = `*[_type == "services"].tags[defined(@)]`;
 
-export function getStaticPaths() {
+  const [productTags, blogTags, servicesTags] = await Promise.all([
+    client.fetch(productTagsQuery),
+    client.fetch(blogTagsQuery),
+    client.fetch(servicesTagsQuery),
+  ]);
+
   const allTags = new Map();
 
-  // Helper function to add an item to a standardized tag key
   const addItemToTag = (tag, item) => {
-    // THIS IS THE FIX: Standardize the tag by converting to lower case before using it as a key.
     const standardizedTag = tag.toLowerCase();
-
     if (!allTags.has(standardizedTag)) {
-      // Store the original casing for display purposes, but use the standardized key.
       allTags.set(standardizedTag, { originalName: tag, items: [] });
     }
     allTags.get(standardizedTag).items.push(item);
   };
 
-  // Process all data files using the same helper function
-  productsData.products.forEach(p => {
-    (p.tags || []).forEach(tag => addItemToTag(tag, { ...p, type: 'Product' }));
-  });
-  
-  servicesData.services.forEach(s => {
-    (s.tags || []).forEach(tag => addItemToTag(tag, { ...s, type: 'Service' }));
-  });
+  const uniqueTags = [...new Set([...productTags.flat(), ...blogTags.flat(), ...servicesTags.flat()])];
 
-  blogData.articles.forEach(a => {
-    (a.tags || []).forEach(tag => addItemToTag(tag, { ...a, type: 'Article' }));
-  });
+  for (const tag of uniqueTags) {
+    const productsQuery = `*[_type == "product" && $tag in tags[]]`;
+    const blogsQuery = `*[_type == "blog" && $tag in tags[]]`;
+    const servicesQuery = `*[_type == "services" && $tag in tags[]]`;
 
-  return Array.from(allTags.values()) // Use .values() as we stored an object
+    const [products, blogs, services] = await Promise.all([
+      client.fetch(productsQuery, { tag }),
+      client.fetch(blogsQuery, { tag }),
+      client.fetch(servicesQuery, { tag }),
+    ]);
+
+    products.forEach(p => addItemToTag(tag, { ...p, type: 'Product' }));
+    blogs.forEach(a => addItemToTag(tag, { ...a, type: 'Article' }));
+    services.forEach(s => addItemToTag(tag, { ...s, type: 'Service' }));
+  }
+
+  return Array.from(allTags.values())
     .filter(({ originalName }) => originalName && originalName.trim() !== '')
     .map(({ originalName, items }) => {
       const slug = originalName.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^a-z0-9-]/g, '');
       
-      // Check the standardized (lowercase) tag name
       if (originalName.toLowerCase() === 'filter media calculator') {
         items.unshift({
           type: 'Calculator',
