@@ -1,31 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import productsData from '/public/data/products.json';
-import siteData from '/public/data/data.json';
+import { client } from '../../lib/sanityClient';
 
 export const prerender = true;
 
 // This function ensures a page is built for EVERY category from your main data file
-export function getStaticPaths() {
-  const allProducts = productsData.products;
-  const allCategories = siteData.categories; 
+export async function getStaticPaths() {
+  const categoriesQuery = `*[_type == "categories"][0].items[].name`;
+  const categories = await client.fetch(categoriesQuery);
 
-  return allCategories.map(category => {
-    const categoryName = category.name;
-    const productsForThisCategory = allProducts.filter(product => {
-      const productCategories = Array.isArray(product.category) ? product.category : [product.category];
-      return productCategories.includes(categoryName);
-    });
+  return categories.map(categoryName => {
     const slug = categoryName.toLowerCase().replace(/\s+/g, '-');
-    
     return {
       params: { slug: slug },
-      props: { categoryName: categoryName, products: productsForThisCategory },
+      props: { categoryName: categoryName },
     };
   });
 }
 
-const { categoryName, products } = Astro.props;
+const { categoryName } = Astro.props;
+const { slug } = Astro.params;
+
+const productsQuery = `*[_type == "product" && $categoryName in category[]]`;
+const products = await client.fetch(productsQuery, { categoryName });
 
 function renderPrice(p) {
   if (p.negotiable) return `<span class="negotiable-text">Negotiable</span>`;
