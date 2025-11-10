@@ -181,13 +181,13 @@ const tags = Array.isArray(product.tags) ? product.tags : [];
           {similar.map((sp) => (
             <div class="product-card">
               <div class="product-image">
-                <img src={(Array.isArray(sp.images) ? sp.images[0] : sp.images) || ""} alt={sp.name} />
+                <img src={urlFor(sp.images[0]).url()} alt={sp.name} />
               </div>
               <div class="product-content">
                 <h3 class="product-name">{sp.name}</h3>
                 <p class="product-desc">{sp.description}</p>
                 <div class="product-buttons">
-                  <a href={`/product/${sp.slug}`} class="btn-outline-listing">View Details</a>
+                  <a href={`/product/${sp.slug.current}`} class="btn-outline-listing">View Details</a>
                 </div>
               </div>
             </div>
