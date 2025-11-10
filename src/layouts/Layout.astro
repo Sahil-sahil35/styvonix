@@ -1,0 +1,334 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const { 
+  title, 
+  description = "Premium filtration solutions for home, commercial, and industrial needs. Experience the future of clean water technology.",
+  keywords = "water filtration, filter media,filter media calculator, activated carbon, silica sand, water treatment, purification systems",
+  ogImage = "/images/logo/logo.png",
+  canonicalURL = Astro.url.href
+} = Astro.props;
+
+const siteName = "Styvonix Future Pvt. Ltd.";
+const fullTitle = title.includes(siteName) ? title : `${title} — ${siteName}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+    <link rel="canonical" href={canonicalURL}>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:title" content={fullTitle}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={new URL(ogImage, Astro.url).href}>
+    <meta property="og:site_name" content={siteName}>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalURL || Astro.url.href}>
+    <meta property="twitter:title" content={fullTitle}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={new URL(ogImage, Astro.url).href}>
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content={siteName}>
+    <meta name="theme-color" content="#e6b800">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo/favicon.png">
+    <link rel="apple-touch-icon" href="/images/logo/favicon.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link href="/styles/main.css" rel="stylesheet">
+    <link href="/styles/listing.css" rel="stylesheet">
+    <link href="/styles/product_details.css" rel="stylesheet">
+    <link href="/styles/cart.css" rel="stylesheet">
+    <link href="/styles/Blog.css" rel="stylesheet">
+    <link href="/styles/about.css" rel="stylesheet">
+    <link href="/styles/services.css" rel="stylesheet">
+
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Styvonix Future Pvt. Ltd.",
+      "url": "https://styvonix.com",
+      "logo": "https://styvonix.com/images/logo/logo.png",
+      "description": "Premium filtration solutions for home, commercial, and industrial needs.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "customer service"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="/images/logo/logo.png" alt="Styvonix Logo" class="header-logo">
+            </a>
+            
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/listing">Shop</a>
+                <div class="nav-dropdown">
+                    <a href="#categories">Categories</a>
+                    <div class="desktop-categories-dropdown">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+                <a href="/services">Services</a>
+                <a href="/blog">Blog</a>
+                <a href="/about">About</a>
+                <a href="#" class="js-contact-modal-trigger">Contact</a>
+            </nav>
+
+            <!-- Search Modal -->
+            <div class="search-modal" id="searchModal">
+                <div class="search-modal-content">
+                    <span class="close-search">&times;</span>
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <div id="searchResults"></div>
+                </div>
+            </div>
+            
+            <div class="header-icons">
+                <button class="icon-btn search-btn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="icon-btn mobile-menu">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/listing">Shop</a>
+        <div class="mobile-dropdown">
+            <a href="javascript:void(0)" class="mobile-category-toggle">Categories</a>
+            <div class="mobile-categories-dropdown">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+        <a href="/services">Services</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="#" class="js-contact-modal-trigger">Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <slot />
+    </main>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Contact Us: <span id="modalInquirySubject">Your Inquiry</span></h2>
+            <form id="contactForm" action="https://formspree.io/f/xjkebdpo" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modalName">Your Name</label>
+                        <input type="text" id="modalName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalEmail">Email</label>
+                        <input type="email" id="modalEmail" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Phone Number (Optional)</label>
+                    <input type="tel" id="modalPhone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="modalCategory">Inquiry Type</label>
+                    <select id="modalCategory" name="inquiry_type" required>
+                        <option value="" disabled selected>Select a category...</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Bulk Order">Place a Bulk Order</option>
+                        <option value="Technical Support">Technical Support</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalMessage">Message</label>
+                    <textarea id="modalMessage" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-solid">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top">▲</button>
+
+    <div class="map-modal" id="mapModal">
+        <div class="map-modal-content">
+            <span class="close-map-modal">&times;</span>
+            <div id="mapContainer"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Shop Links</h3>
+                    <!-- Shop links will be populated by JavaScript -->
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <!-- Contact info will be populated by JavaScript -->
+                </div>
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Subscribe to our newsletter for the latest products and offers.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Enter your email">
+                        <button class="btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- Footer text will be populated by JavaScript -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Added to temporary cart — clears when you leave</div>
+    <div id="productList" class="product-list"></div>
+
+    <!-- Core JavaScript -->
+    <script src="/js/main.js" is:inline></script>
+
+    <script src="/js/main.js" is:inline></script>
+
+<script src="/js/main.js" is:inline></script>
+
+<script src="/js/main.js" is:inline></script>
+
+<script src="/js/main.js" is:inline></script>
+
+<script src="/js/main.js" is:inline></script>
+
+<script src="/js/main.js" is:inline></script>
+
+<div class="social-sidebar">
+    <a href="https://www.facebook.com/share/17AWQAE9H8/" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <!-- Facebook -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor" width="24" height="24">
+            <title>Facebook</title>
+            <path d="M279.14 288l14.22-92.66h-88.91V127.41c0-25.35 
+                     12.42-50.06 52.24-50.06h40.42V6.26S293.3 0 
+                     268.08 0c-73.22 0-121.08 44.38-121.08 
+                     124.72v70.62H86.4V288h60.6v224h92.66V288z"/>
+        </svg>
+    </a>
+
+    <!-- <a href="#" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <title>Instagram</title>
+            <path d="M12 0C8.741 0 8.333.015 7.053.072 5.775.13 4.905.304 
+                     4.14.601c-.789.306-1.457.717-2.126 
+                     1.386S.907 3.35.601 4.14C.304 4.905.13 5.775.072 
+                     7.053.015 8.333 0 8.741 0 
+                     12s.015 3.667.072 4.947c.058 1.278.232 
+                     2.148.529 2.913.306.789.717 1.457 
+                     1.386 2.126s1.337 1.08 2.126 
+                     1.386c.765.297 1.635.471 2.913.529C8.333 
+                     23.985 8.741 24 12 24s3.667-.015 
+                     4.947-.072c1.278-.058 2.148-.232 
+                     2.913-.529.789-.306 1.457-.717 
+                     2.126-1.386s1.08-1.337 1.386-2.126c.297-.765.471-1.635.529-2.913.057-1.28.072-1.688.072-4.947s-.015-3.667-.072-4.947c-.058-1.278-.232-2.148-.529-2.913-.306-.789-.717-1.457-1.386-2.126S20.649.907 
+                     19.86.601c-.765-.297-1.635-.471-2.913-.529C15.667.015 
+                     15.259 0 12 0zm0 5.838a6.162 
+                     6.162 0 1 1 0 12.324A6.162 
+                     6.162 0 0 1 12 5.838zm0 
+                     10.162a3.999 3.999 0 1 0 0-7.998 
+                     3.999 3.999 0 0 0 0 7.998zm7.846-11.46a1.44 
+                     1.44 0 1 1-2.88 0 1.44 
+                     1.44 0 0 1 2.88 0z"/>
+        </svg>
+    </a> -->
+
+    <a href="https://www.linkedin.com/company/styvonix-future-private-limited/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+        <!-- LinkedIn -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="24" height="24">
+            <title>LinkedIn</title>
+            <path d="M100.28 448H7.4V148.9h92.88zM53.79 
+                     108.1c-29.19 0-52.79-23.6-52.79-52.79S24.6 
+                     2.52 53.79 2.52s52.79 23.6 52.79 
+                     52.79-23.6 52.79-52.79 52.79zM447.9 
+                     448h-92.4V302.4c0-34.7-.7-79.2-48.28-79.2-48.28 
+                     0-55.7 37.7-55.7 76.6V448h-92.7V148.9h89.1v40.8h1.3c12.4-23.5 
+                     42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 
+                     142.3V448z"/>
+        </svg>
+    </a>
+
+    <a href="mailto:info@styvonix.com" class="social-icon email" aria-label="Email">
+        <!-- Envelope -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" width="24" height="24">
+            <title>Email</title>
+            <path d="M502.3 190.8L327.4 338.7c-15.9 
+                     13.3-39 13.3-54.9 0L9.7 190.8C3.9 
+                     186.1 0 178.6 0 170.6V136c0-22.1 
+                     17.9-40 40-40h432c22.1 0 40 
+                     17.9 40 40v34.6c0 8-3.9 
+                     15.5-9.7 20.2zM0 209.9v165.5c0 
+                     22.1 17.9 40 40 40h432c22.1 0 
+                     40-17.9 40-40V209.9l-154.8 
+                     129c-27.4 22.8-67.1 22.8-94.5 
+                     0L0 209.9z"/>
+        </svg>
+    </a>
+</div>
+</body>
+</html>
+
+
+

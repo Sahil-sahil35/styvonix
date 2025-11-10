@@ -1,0 +1,1375 @@
+{
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Granular Activated Carbon",
+      "slug": "premium-activated-carbon",
+      "description": "Premium Coconut Shell Based Granular Activated Carbon for superior water & air purification with high adsorption capacity and long-lasting performance.",
+      "detailedDescription": "Our Granular Activated Carbon is a premium-grade filtration media widely used in water treatment, air purification, and industrial applications. Manufactured from high-quality coconut shells, this activated carbon offers exceptional adsorption capacity and high surface area. Key Benefits: 100% Natural & Sustainable, High Adsorption Capacity for chlorine, VOCs, taste, and odor, Superior Hardness & Low Dust. We provide high-quality coconut shell GAC at competitive prices, ensuring consistent performance and bulk availability.",
+      "negotiable": false,
+      "price": 125,
+      "salePrice": 110,
+      "sku": "GAC-1000",
+      "category": ["Activated Carbon", "Filter Media"],
+      "subCategory": "Granular Activated Carbon",
+      "material": "Coconut Shell",
+      "rating": 4.8,
+      "reviewCount": 142,
+      "stock": 25,
+      "images": ["/images/Carbon/Granular-Activated-Carbon.webp","/images/Carbon/Granular-Activated-Carbon-2.webp","/images/Carbon/Granular-Activated-Carbon-3.webp","/images/Carbon/Granular-Activated-Carbon-4.webp"],
+      "videoUrl": "",
+      "specs": {
+        "meshSize": "4x8, 8x16, 16x32",
+        "iodineNumber": "≥1000 mg/g",
+        "bulkDensity": "0.45-0.55 g/cm³",
+        "applications": ["Drinking Water Purification", "Wastewater Treatment", "Food & Beverage Processing", "Air & Gas Purification"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Activated Carbon", "Filter Media", "Drinking Water", "High Adsorption", "Coconut Shell","Filter Media Calculator","Activated Carbon Manufacturer in Delhi",
+            "Granular Activated Carbon",
+            "Activated Carbon in Delhi",
+            "Granular Activated Carbon Suppliers",
+            "Granular Activated Carbon Suppliers near me",
+            "Granular Activated Carbon in Delhi",
+            "Activated Carbon Suppliers",
+            "Activated Carbon Suppliers in Delhi",
+            "Activated Carbon suppliers in India",
+            "Activated Carbon for water treatment"
+    ]
+    },
+
+
+
+
+
+
+
+    
+    {
+      "id": "prod-002",
+      "name": "Silica Sand",
+      "slug": "high-quality-silica-sand",
+      "description": "High-purity Silica Sand for water treatment, construction, glass manufacturing, and industrial applications – durable, reliable, and eco-friendly.",
+      "detailedDescription": "Our Silica Sand is a high-grade, naturally occurring mineral widely used in water treatment, glass manufacturing, and construction. With its high silica content, consistent grain size, and excellent chemical purity, it is one of the most reliable filtration media available.",
+      "negotiable": false,
+      "price": 7,
+      "salePrice": 5,
+      "sku": "SI-99.9",
+      "category": ["Filter Media", "Silica Sand"],
+      "subCategory": "Sand Media",
+      "material": "Rock Stone",
+      "rating": 4.9,
+      "reviewCount": 150,
+      "stock": 1,
+      "images": ["/images/Silica-Sand/Silica-sand.webp","/images/Silica-Sand/Silica-sand-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "meshSize": "8*16, 16*32",
+        "bulkDensity": "1600kg/m^3",
+        "applications": ["Water Treatment", "Glass Manufacturing", "Construction Industry", "Industrial Applications"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Silica Sand", "Filter Media", "Sediment Removal", "Industrial Water Treatment", "Construction","Filter Media Calculator","Silica Sand Manufacturer in Delhi",
+
+        "Silica Sand",
+        "Silica Sand Suppliers",
+        "Silica sand suppliers in delhi",
+        "Silica Sand for Water Treatment",
+        "Silica Sand for Glass Industry",
+        "silica sand price",
+        "silica sand near me",
+        "Filter media sand",
+        "Filter media suppliers in Delhi",
+        "Filter media Calculator"]
+  },
+
+
+
+
+
+
+
+    {
+      "id": "prod-003",
+      "name": "Pebbles",
+      "slug": "best-quality-pebbles",
+      "description": "Natural Pebbles Media for water treatment, filtration plants, landscaping, and construction – durable, eco-friendly, and long-lasting performance.",
+      "detailedDescription": "Our Pebbles Media is a natural, hard, and durable material widely used in water treatment plants as a support layer for other filter media. Carefully graded and screened, these pebbles provide excellent support for sand and anthracite, ensuring maximum efficiency.",
+      "negotiable": false,
+      "price": 7,
+      "salePrice": 5,
+      "sku": "P-100",
+      "category": ["Filter Media"],
+      "subCategory": "Pebbles Media",
+      "material": "River Stone",
+      "rating": 4.9,
+      "reviewCount": 155,
+      "stock": 1,
+      "images": ["/images/Gravel/Pebbles.webp","/images/Gravel/Filter-Media-Pebbles-2.webp","/images/Gravel/Filter-Media-Pebbles-3.webp","/images/Gravel/Filter-Media-Pebbles-4.webp"],
+      "videoUrl": "",
+      "specs": {
+        "size": "5-10mm, 10-20mm, 20-50mm",
+        "applications": ["Water Treatment Support Media", "Construction Industry", "Landscaping & Decoration"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Pebbles", "Gravel", "Filter Media", "Support Media", "Landscaping","Filter Media Calculator","Pebbles Supplier in Delhi",
+
+        "Pebbles Media",
+        "Pebbles Media in Delhi",
+        "Filtr media pebbles",
+        "Filter media Suppliers in Delhi",
+        "Filter Media Calculator"
+
+    ]
+    },
+
+
+
+
+
+
+
+    {
+      "id": "prod-004",
+      "name": "Gravel Media",
+      "slug": "best-quality-gravel",
+      "description": "High-quality Gravel Media for water filtration, wastewater treatment, and construction applications – durable, natural, and long-lasting support media.",
+      "detailedDescription": "Our Gravel Media is a naturally hard and durable material used as a support media in water filtration systems. With consistent grain size and high strength, gravel ensures efficient water flow and improved filtration.",
+      "negotiable": false,
+      "price": 7,
+      "salePrice": 5,
+      "sku": "GR-100",
+      "category": ["Filter Media"],
+      "subCategory": "Gravel Media",
+      "material": "River Stone",
+      "rating": 4.9,
+      "reviewCount": 152,
+      "stock": 1,
+      "images": ["/images/Gravel/Filter-Media-Gravels.webp","/images/Gravel/Filter-Media-Gravels-2.webp","/images/Gravel/Filter-Media-Gravels-3.webp"],
+      "videoUrl": "",
+      "specs": {
+        "size": "5-10mm, 10-20mm, 20-50mm",
+        "applications": ["Water Treatment Support Media", "Wastewater Treatment", "Construction"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Gravel", "Pebbles", "Filter Media", "Support Media", "Wastewater Treatment","Filter Media Calculator","Gravel Supplier in Delhi", 
+
+        "Gravel Media",
+        "Gravel Media for Water Filtration",
+        "Filtration Gravel Supplier",
+        "Gravel for Sand Filter",
+        "Gravel Media Manufacturer",
+        "Filter media gravels",
+        "Filter Media Suppliers in Delhi",
+        "Filter Media Calculator"
+    
+    ]
+    },
+
+
+
+
+    {
+    "id": "prod-005",
+    "name": "Filter Media Core Sand",
+    "slug": "filter-media-core-sand",
+    "description": "High-purity Silica Sand for water treatment, construction, glass manufacturing, and industrial applications – durable, reliable, and eco-friendly.",
+    "detailedDescription": "Filter Media Core Sand – Premium Quality for Industrial & Commercial Use\n\nOur Silica Sand is a high-grade, naturally occurring mineral widely used in water treatment, glass manufacturing, construction, and industrial applications. With its high silica content, consistent grain size, and excellent chemical purity, it is one of the most reliable filtration and processing media available.",
+    "negotiable": false,
+    "price": 7,
+    "salePrice": 5,
+    "sku": "SI-99.9",
+    "category": [
+      "Filter Media",
+      "Silica Sand"
+    ],
+    "subCategory": "Filter Media Core Sand",
+    "material": "Rock Stone",
+    "rating": 4.9,
+    "reviewCount": 150,
+    "stock": 1,
+    "images": [
+      "/images/Silica-Sand/Core-sand.webp",
+      "/images/Silica-Sand/Core-sand-2.webp",
+      "/images/Silica-Sand/Core-sand-3.webp"
+    ],
+    "videoUrl": "",
+    "specs": {
+      "meshSize": "2-5mm,5-10mm",
+      "bulkDensity": "1.6g/cm3",
+      "moisture": "<=.5%",
+      "applications": ["Water Treatment","Glass Manufacturing","Construction Industry","Foundry & Casting","Industrial Applications"
+      ]
+    },
+    "documents": [
+      {
+        "name": "Product Sheet",
+        "url": "#"
+      },
+      {
+        "name": "MSDS",
+        "url": "#"
+      },
+      {
+        "name": "Installation Guide",
+        "url": "#"
+      }
+    ],
+    "tags": [
+      "Silica Sand","Filter Media","Sediment Removal","Industrial Water Treatment","Construction","Filter Media Calculator","Core Sand","Core sand Supplier in Delhi",
+        "Silica Sand Supplier",
+        "Filter Media Core Sand",
+        "Silica Sand for Water Treatment",
+        "Silica Sand for Glass Industry",
+        "Filter media core sand suppliers in delhi",
+        "Filter media calculator",
+        "Filter Media Suppliers in Delhi"
+    ]
+  },
+
+
+
+    {
+      "id": "prod-006",
+      "name": "Anthracite Media",
+      "slug": "anthracite-filter-media",
+      "description": "High-grade Anthracite Filter Media for water treatment, wastewater purification, and industrial filtration – durable, efficient, and long-lasting.",
+      "detailedDescription": "Our Anthracite Filter Media is a high-carbon, durable filtration material used in multimedia filters. With its angular shape and high hardness, anthracite provides excellent turbidity removal and longer filter runs compared to sand alone.",
+      "negotiable": false,
+      "price": 60,
+      "salePrice": 45,
+      "sku": "FC-90",
+      "category": ["Filter Media", "Anthracite Media"],
+      "subCategory": "Anthracite Media",
+      "material": ["Anthracite", "Coal"],
+      "rating": 5,
+      "reviewCount": 200,
+      "stock": 1,
+      "images": ["/images/Anthracite/Anthracite-Media.webp","/images/Anthracite/Anthracite-Media-2.webp","/images/Anthracite/Anthracite-Media-3.webp"],
+      "videoUrl": "",
+      "specs": {
+        "meshSize": "8*16, 16*32",
+        "carbonContent": ">90%",
+        "applications": ["Industrial Water Treatment", "Wastewater Treatment", "Drinking Water"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Anthracite", "Filter Media", "Sediment Removal", "Industrial Water Treatment", "Coal","Filter Media Calculator","Anthracite Supplier in Delhi",
+
+       "Anthracite Filter Media",
+        "Anthracite Media for Water Treatment",
+        "Filtration Grade Anthracite",
+        "Anthracite Supplier",
+        "Anthracite Filter Media Manufacturer",
+        "Anthracite suppliers in Delhi",
+        "Filter Media Calculator"
+    ]
+    },
+
+
+
+
+
+
+
+
+    {
+      "id": "prod-007",
+      "name": "Powder Activated Carbon",
+      "slug": "powder-activated-carbon",
+      "description": "High-quality Powder Activated Carbon for water purification, wastewater treatment, and industrial applications – fine, efficient, and fast-acting.",
+      "detailedDescription": "Our Powder Activated Carbon (PAC) is a fine, high-purity adsorbent made from materials such as coconut shells and coal. Known for its large surface area and quick action, PAC is widely used in drinking water purification and wastewater treatment.",
+      "negotiable": false,
+      "price": 200,
+      "salePrice": 160,
+      "sku": "PAC-350",
+      "category": ["Activated Carbon", "Filter Media"],
+      "subCategory": "Powder Activated Carbon",
+      "material": ["Wood", "Coal"],
+      "rating": 4.9,
+      "reviewCount": 120,
+      "stock": 1,
+      "images": ["/images/Carbon/Powder-Activated-Carbon.webp","/images/Carbon/Powder-Activated-Carbon-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "meshSize": "200-250",
+        "iodineNumber": "100-350MB",
+        "applications": ["Wastewater Treatment", "Food & Beverage Industry", "Pharmaceutical Industry"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Activated Carbon", "Filter Media", "Wastewater Treatment", "High Adsorption", "Powder","Filter Media Calculator","Activated Carbon Manufacturer in Delhi",
+
+      "Powder Activated Carbon",
+      "Activated Carbon for Water Treatment",
+      "Powder Activated Carbon Supplier",
+      "Activated Carbon Powder for liquid Purification",
+      "Powder Activated carbon suppliers in India",
+      "Powder activated carbon suppliers in Delhi",
+      "Activated Carbon Suppliers in Delhi"
+    ]
+    },
+
+
+
+
+
+    {
+      "id": "prod-008",
+      "name": "Manganese Dioxide (MnO₂)",
+      "slug": "manganese-dioxide-mno2",
+      "description": "High-purity Manganese Dioxide (MnO₂) filter media for efficient removal of iron, manganese, and hydrogen sulfide from water – durable and long-lasting.",
+      "detailedDescription": "Our Manganese Dioxide (MnO₂) filter media is a specially processed mineral for water treatment. Known for its strong oxidizing properties, MnO₂ efficiently removes iron, manganese, and hydrogen sulfide from groundwater.",
+      "negotiable": false,
+      "price": 40,
+      "salePrice": 30,
+      "sku": "MNO2-60",
+      "category": ["Filter Media"],
+      "subCategory": "MnO2 Media",
+      "material": "Minerals",
+      "rating": 4.8,
+      "reviewCount": 140,
+      "stock": 1,
+      "images": ["/images/Anthracite/MnO2.webp","/images/Anthracite/MnO2-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "form": "Granular",
+        "mnO2Content": ">75%",
+        "applications": ["Iron Removal", "Manganese Removal", "Groundwater Treatment"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Manganese Dioxide", "Filter Media", "Iron Removal", "Specialty Media", "Groundwater","Filter Media Calculator","MnO2 Supplier in Delhi",
+
+        "Manganese Dioxide Filter Media",
+        "MnO₂ for Water Treatment",
+        "Iron Removal Media",
+        "Manganese Removal Filter Media",
+        "Hydrogen Sulfide Removal Media",
+        "MnO2",
+        "MnO2 in Delhi",
+        "MnO2 Suppliers In Delhi",
+        "MnO2 Suppliers in India",
+        "MnO2 Suppliers near me"
+    ]
+    },
+
+
+
+
+    {
+      "id": "Prod-009",
+      "name": "Water Softener Plant(1200 Ltr Resin Cap)",
+      "slug": "water-softener-plant-1200-ltr",
+      "description": "High-performance Water Softener Plant designed to remove hardness from water, ensuring scale-free plumbing, efficient appliances, and pure water.",
+      "detailedDescription": "A Water Softener Plant is an advanced water treatment system designed to remove hardness-causing minerals like calcium and magnesium from water using ion exchange technology. Hard water creates scaling in pipelines, boilers, and appliances, reducing efficiency. Our Water Softener Plant ensures 100% soft water, protection against scaling, and longer life of pipelines and appliances.",
+      "negotiable": true,
+      "price": 0,
+      "sku": "WSP-01",
+      "category": ["Plants and Machinery"],
+      "subCategory": "Water Softener Plant",
+      "material": "FRP/MS",
+      "rating": 4.9,
+      "reviewCount": 98,
+      "stock": 1,
+      "images": ["/images/Plants/Water-Softener-1200ltr.webp","/images/Plants/Water-Softener-1200ltr-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "capacity": "Customizable",
+        "automation": "Manual, Semi-Automatic, Fully Automatic",
+        "applications": ["Domestic Homes", "Hotels & Restaurants", "Industrial Boilers", "RO Plant Pre-Treatment"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+      "tags": ["Water Softener", "RO Plant", "DM Plant", "Plants and Machinery", "Hardness Removal", "Industrial Water Treatment","Filter Media Calculator",
+
+        "Water Softener Plant",
+        "Industrial Water Softener",
+        "Domestic Water Softener System",
+        "Commercial Water Softener Plant",
+        "Hard Water softener Plant",
+        "Water Softener Plant manufacturers in Delhi",
+        "Water Softener for Boiler",
+        "Water Softener Plant supplier in Delhi",
+        "Water Softener service in Delhi",
+        "water softener plant in delhi"
+    ]
+    },
+
+
+
+
+    {
+      "id": "prod-010",
+      "name": "DM Plant (Demineralization)",
+      "slug": "dm-plant-demineralization",
+      "description": "High-efficiency DM Plant to remove dissolved salts and minerals, delivering 100% pure demineralized water for industrial and laboratory applications.",
+      "detailedDescription": "A Demineralization (DM) Plant removes dissolved salts and minerals through cation and anion exchange resin technology. It produces high-purity demineralized water ideal for industrial, pharmaceutical, and laboratory use. Our DM Plant features advanced ion-exchange resins for complete demineralization, delivering water with very low conductivity.",
+      "negotiable": true,
+      "price": 0,
+      "sku": "DMP-01",
+      "category": ["Plants and Machinery"],
+      "subCategory": "DM Plant",
+      "material": "FRP/MS",
+      "rating": 4.9,
+      "reviewCount": 56,
+      "stock": 1,
+      "images": ["/images/Background-img/Plant.webp"],
+      "videoUrl": "",
+      "specs": {
+        "capacity": "Customizable",
+        "outputConductivity": "< 0.1 µS/cm",
+        "applications": ["Power Plants", "Pharmaceutical Industry", "Laboratories", "Electronics Industry"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+      "tags": ["DM Plant", "Demineralization", "Plants and Machinery", "High Purity Water", "Industrial Water Treatment","Filter Media Calculator",
+
+        "DM Plant",
+        "Demineralization Plant",
+        "Demineralised Water System",
+        "Industrial DM Plant",
+        "DM Water Treatment Plant",
+        "Boiler Feed Water DM Plant",
+        "Automatic DM Plant",
+        "Demineralized Water for Industry",
+        "DM Plant in Delhi",
+        "DM Plant manufacturers in Delhi"
+
+    ]
+    },
+
+
+
+
+
+    {
+      "id": "prod-011",
+      "name": "RO Plant (Reverse Osmosis)",
+      "slug": "ro-plant-reverse-osmosis",
+      "description": "High-performance Reverse Osmosis (RO) Plant for pure, safe, and crystal-clear water by removing TDS, chemicals, salts, and impurities.",
+      "detailedDescription": "A Reverse Osmosis (RO) Plant is an advanced water purification system that removes dissolved salts, heavy metals, bacteria, and viruses through a semi-permeable membrane. It ensures safe, healthy, and great-tasting water for industrial, commercial, and domestic applications. Our RO Plant features advanced membrane technology with a high salt rejection rate and an energy-efficient design.",
+      "negotiable": true,
+      "price": 0,
+      "sku": "ROP-01",
+      "category": ["Plants and Machinery"],
+      "subCategory": "Reverse Osmosis (RO) Plant",
+      "material": "FRP/PVC/SS",
+      "rating": 4.9,
+      "reviewCount": 98,
+      "stock": 1,
+      "images": ["/images/Plants/RO.webp","/images/Plants/RO-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "capacity": "Customizable",
+        "tdsRejection": ">99%",
+        "applications": ["Drinking Water", "Commercial Offices", "Food & Beverage Industry", "Pharmaceutical Industry"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+      "tags": ["RO Plant", "Reverse Osmosis","Filter Media Calculator",
+
+        "Reverse Osmosis Plant",
+        "Industrial RO System",
+        "Commercial RO Plant",
+        "Domestic RO Water Purifier",
+        "RO Water Treatment Plant",
+        "Mineral Water Plant",
+        "Automatic RO Plant",
+        "Best RO Plant in India",
+        "RO Plant for Drinking Water",
+        "RO Plant in Delhi",
+        "RO Plant Manufacturers in Delhi"
+
+    ]
+    },
+
+
+
+    {
+      "id": "Prod-012",
+      "name": "Water Softener Plant(700 Ltr Resin Cap)",
+      "slug": "water-softener-plant-700-ltr",
+      "description": "High-performance Water Softener Plant designed to remove hardness from water, ensuring scale-free plumbing, efficient appliances, and pure water.",
+      "detailedDescription": "A Water Softener Plant is an advanced water treatment system designed to remove hardness-causing minerals like calcium and magnesium from water using ion exchange technology. Hard water creates scaling in pipelines, boilers, and appliances, reducing efficiency. Our Water Softener Plant ensures 100% soft water, protection against scaling, and longer life of pipelines and appliances.",
+      "negotiable": true,
+      "price": 0,
+      "sku": "WSP-01",
+      "category": ["Plants and Machinery"],
+      "subCategory": "Water Softener Plant",
+      "material": "FRP/MS",
+      "rating": 4.9,
+      "reviewCount": 98,
+      "stock": 1,
+      "images": ["/images/Plants/Water-Softener-700ltr.webp","/images/Plants/Water-Softener-700ltr-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "capacity": "Customizable",
+        "automation": "Manual, Semi-Automatic, Fully Automatic",
+        "applications": ["Domestic Homes", "Hotels & Restaurants", "Industrial Boilers", "RO Plant Pre-Treatment"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+      "tags": ["Water Softener", "water softener plant in Delhi", "Water softener in Delhi", "softener plant manufacturer in Delhi", "Hard water softener plant", "Industrial Water Treatment","Filter Media Calculator"]
+    },
+
+  {
+    "id": "prod-013",
+    "name": "Cooling Tower Fills Media",
+    "slug": "cooling-tower-fills-media",
+    "description": "High-quality Cooling Tower Fills Media in PVC & PP. Designed for crossflow & counterflow towers to maximize cooling efficiency, durability, and performance. ",
+    "detailedDescription": "Cooling Tower Fills Media is a crucial component designed to improve the efficiency and performance of cooling towers by maximizing the surface area for heat transfer between air and water. Manufactured from premium quality PVC and PP materials, our fill media ensures high durability, chemical resistance, and long service life while reducing scaling and fouling. Available in different configurations such as film fills, splash fills, and drift eliminators, they are suitable for both crossflow and counterflow cooling towers used in HVAC systems, power plants, industrial cooling processes, petrochemical plants, and water treatment facilities. Easy to install, maintain, and cost-effective, our Cooling Tower Fill Media enhances cooling efficiency, reduces energy consumption, and ensures reliable long-term operation for a wide range of applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "CTFM-1",
+    "category": ["Cooling Tower-Media-Spares","Spare Parts"],
+    "subCategory": "Cooling Tower Fills Media",
+    "material": "PP/PVC",
+    "rating": 5,
+    "reviewCount": 156,
+    "stock": 1,
+    "images": ["/images/Carbon/PVC-Fill.webp","/images/Carbon/PVC-Fill-2.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "CUSTOMIZE",
+      "applications": [
+        "HVAC cooling towers",
+        "power plants",
+        "industrial cooling",
+        "petrochemical plants",
+        "refineries",
+        "steel and cement industries",
+        "chemical and fertilizer plants",
+        "manufacturing units",
+        "process cooling applications",
+        "large-scale water treatment facilities"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "cooling tower fills",
+      "cooling tower fills media",
+      "pvc cooling tower fills",
+      "pp cooling tower fills",
+      "crossflow cooling tower fills",
+      "counterflow cooling tower fills",
+      "splash fills cooling tower",
+      "cooling tower drift eliminator",
+      "cooling tower spare parts",
+      "industrial cooling tower media",
+      "cooling tower fills manufacturer",
+      "cooling tower fills in Delhi"
+    ]
+  },
+  {
+    "id": "prod-014",
+    "name": "Cooling Tower Drift Eliminator",
+    "slug": "cooling-tower-drift-eliminator",
+    "description": "High-performance Cooling Tower Drift Eliminators designed to minimize water loss, prevent droplet carryover, and improve cooling tower efficiency.",
+    "detailedDescription": "Cooling Tower Drift Eliminators are essential components designed to reduce water losses and control drift emissions in cooling towers by capturing and removing water droplets from the exhaust air stream. Manufactured from high-quality PVC and PP materials, our drift eliminators provide excellent durability, resistance to UV, corrosion, and chemicals, while ensuring long service life. They significantly improve cooling tower efficiency by preventing water wastage, reducing scaling and deposits, and maintaining compliance with environmental regulations.  Suitable for both counterflow and crossflow cooling towers in HVAC, power generation, industrial process cooling, and water treatment applications, our Cooling Tower Drift Eliminators are easy to install, lightweight, low maintenance, and cost-effective for long-term operation.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "CTDE-1",
+    "category": ["Cooling Tower-Media-Spares","Spare Parts"],
+    "subCategory": "Cooling Tower Drift Eliminator",
+    "material": "PVC",
+    "rating": 5,
+    "reviewCount": 123,
+    "stock": 1,
+    "images": ["/images/Carbon/Cooling-tower-drift-1.webp","/images/Carbon/Cooling-tower-drif.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "CUSTOMIZE",
+      "applications": [
+        "HVAC cooling towers",
+        "power plants",
+        "petrochemical plants",
+        "refineries",
+        "chemical and fertilizer industries",
+        "steel and cement plants",
+        "manufacturing facilities",
+        "process cooling applications",
+        "large-scale industrial water treatment systems"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "cooling tower drift eliminator",
+      "pvc drift eliminator",
+      "pp drift eliminator",
+      "cooling tower drift control",
+      "cooling tower components",
+      "drift eliminator cooling tower",
+      "cooling tower drift eliminator in Punjab",
+      "Cooling tower drift eliminator in Delhi",
+      "industrial cooling tower accessories",
+      "cooling tower spare parts"
+    ]
+  },
+  {
+    "id": "prod-015",
+    "name": "Bio Pack Media",
+    "slug": "bio-pack-media",
+    "description": "High-quality Bio Pack Media for STP, ETP, and MBBR systems. Designed for maximum surface area, efficient biological growth, and long-term wastewater treatment performance.",
+    "detailedDescription": "Bio Pack Media, also known as MBBR Media or FAB Media, is a crucial component used in sewage treatment plants (STP), effluent treatment plants (ETP), and biological wastewater treatment systems. Manufactured from durable virgin polypropylene (PP) with high surface area and structured design, our Bio Pack Media ensures excellent bacterial growth, faster decomposition of organic matter, and higher treatment efficiency. It is lightweight, non-clogging, easy to install, resistant to chemicals, and provides a long service life.  Widely used in MBBR reactors, aerobic and anaerobic systems, aquaculture, and wastewater recycling plants, our Bio Pack Media reduces BOD, COD, and suspended solids while delivering cost-effective and reliable performance for sustainable water treatment.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "MBM-1",
+    "category": ["Plants and Machinery","Filter Media","Spare Parts"],
+    "subCategory": "Bio Pack Media",
+    "material": "PP",
+    "rating": 4,
+    "reviewCount": 40,
+    "stock": 1,
+    "images": ["/images/Carbon/BIO-PACK-MEDIA.webp","/images/Carbon/mbbr-bio-pac-media-2.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "CUSTOMIZE",
+      "applications": [
+        "sewage treatment plants (STP)",
+        "effluent treatment plants (ETP)",
+        "moving bed biofilm reactors (MBBR)",
+        "fluidized aerobic beds (FAB)",
+        "aquaculture systems",
+        "wastewater recycling units",
+        "industrial effluent treatment",
+        "municipal wastewater treatment",
+        "food and beverage industry treatment plants",
+        "large-scale biological filtration processes"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "bio pack media",
+      "mbbr media",
+      "fab media",
+      "stp media",
+      "etp media",
+      "wastewater treatment media",
+      "biological filter media",
+      "plastic bio media",
+      "bio media for aquaculture",
+      "Bio pack media in delhi",
+      "sewage treatment plant media",
+      "effluent treatment plant media",
+      "water treatment bio media"
+    ]
+  },
+  {
+    "id": "prod-016",
+    "name": "Tube Deck Media",
+    "slug": "tube-deck-media",
+    "description": "High-quality Tube Deck Media (Tube Settler Media) for efficient sedimentation and clarification in STP, ETP, and water treatment plants. Durable, lightweight, and easy to install. ",
+    "detailedDescription": "Tube Deck Media, also known as Tube Settler Media or Lamella Clarifier Media, is a vital component used in sewage treatment plants (STP), effluent treatment plants (ETP), and water treatment systems to enhance sedimentation and clarification efficiency. Manufactured from high-strength PVC and PP materials, our Tube Deck Media is designed with a unique honeycomb/hexagonal structure that increases the settling surface.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": null,
+    "category": ["Plants and Machinery","Filter Media","Spare Parts"],
+    "subCategory": null,
+    "material": null,
+    "rating": 4.5,
+    "reviewCount": 45,
+    "stock": 1,
+    "images": ["/images/Carbon/Tube-Deck-Media.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "CUSTOMIZE",
+      "applications": [
+        "sewage treatment plants (STP)",
+        "effluent treatment plants (ETP)",
+        "drinking water treatment plants",
+        "stormwater treatment units",
+        "settling tanks",
+        "clarifiers",
+        "municipal wastewater treatment facilities",
+        "industrial process water treatment",
+        "aquaculture water clarification",
+        "other sedimentation and clarification systems"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "tube deck media",
+      "tube settler media",
+      "pvc tube settler",
+      "pp tube settler",
+      "stp tube settler",
+      "etp tube settler",
+      "water treatment tube media",
+      "tube settler media manufacturer in Delhi",
+      "tube deck media in Delhi",
+      "honeycomb tube media",
+      "tube settler media in Delhi"
+        ]
+  },
+
+  {
+      "id": "prod-017",
+      "name": "Coal Based Activated Carbon",
+      "slug": "premium-coal-based-activated-carbon",
+      "description": "High-quality Coal Based Granular Activated Carbon (GAC) for water and air purification. Delivers excellent adsorption, durability, and long-term performance.",
+      "detailedDescription": "Granular Activated Carbon (GAC) – Coal Based is a highly effective adsorbent manufactured from premium-grade bituminous coal and processed through advanced activation technology to create a porous structure with a large surface area. It is widely used for the removal of chlorine, organic contaminants, VOCs, odors, pesticides, heavy metals, and other harmful pollutants from water, air, and industrial process streams. With high mechanical strength, low ash content, excellent adsorption capacity, and regenerable properties, Coal Based Granular Activated Carbon provides long service life and cost-effective purification. It is extensively applied in drinking water purification, wastewater treatment, air filtration, gold recovery, food and beverage processing, chemical and pharmaceutical industries, and municipal as well as industrial treatment plants for reliable and efficient contaminant removal.",
+      "negotiable": false,
+      "price": 25,
+      "salePrice": 20,
+      "sku": "GAC-1000",
+      "category": ["Activated Carbon", "Filter Media"],
+      "subCategory": "Granular Activated Carbon",
+      "material": ["Coal","Wood"],
+      "rating": 4.8,
+      "reviewCount": 142,
+      "stock": 25,
+      "images": ["/images/Carbon/Coal-based-Activated-Carbon.webp","/images/Carbon/Coal-based-Activated-Carbon-2.webp"],
+      "videoUrl": "",
+      "specs": {
+        "meshSize": "4x8, 8x16, 16x32",
+        "iodineNumber": "≥1000 mg/g",
+        "bulkDensity": "0.45-0.55 g/cm³",
+        "applications": ["Drinking Water Purification", "Wastewater Treatment", "Food & Beverage Processing", "Air & Gas Purification"]
+      },
+      "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+      "tags": ["Activated Carbon", "Filter Media", "Drinking Water", "High Adsorption", "Coal","Filter Media Calculator","Activated Carbon Manufacturer in Delhi",
+            "granular activated carbon",
+            "coal based activated carbon",
+            "gac activated carbon",
+            "activated carbon for water treatment",
+            "activated carbon in Delhi",
+            "activated carbon suppliers in Delhi",
+            "activated carbon for Gas purification",
+            "activated carbon for etp",
+            "activatedb carbon for gold recovery",
+            "activated carbon for solvent recovery",
+            "activated carbon for wast water treatment",
+            "activated carbon manufacturer in India"
+    ]
+    },
+    {
+    "id": "prod-018",
+    "name": "Pelletized Activated Carbon",
+    "slug": "pelletized-activated-carbon",
+    "description": "High-quality Pelletized Activated Carbon for water, air, and industrial purification. Offers high adsorption capacity, durability, and efficient contaminant removal.",
+    "detailedDescription": "Pelletized Activated Carbon (PAC) is a premium-grade adsorbent manufactured from coal, coconut shell, or wood-based raw materials and processed into cylindrical pellets with high mechanical strength. Its uniform size, large surface area, and low dust content make it highly effective for removing contaminants such as chlorine, VOCs, odors, toxic gases, heavy metals, and organic pollutants. Pelletized Activated Carbon provides superior adsorption performance, low-pressure drop, and long service life, making it ideal for air purification, water treatment, solvent recovery, gas separation, gold recovery, and industrial effluent treatment. With high durability, thermal stability, and reactivation ability, PAC is a cost-effective solution for sustainable environmental and industrial purification processes.",
+    "negotiable": false,
+    "price": 130,
+    "salePrice": 120,
+    "sku": "PAC-2",
+    "category": ["Activated Carbon", "Filter Media"],
+    "subCategory": "Pelletized Activated Carbon",
+    "material": "Caol Based",
+    "rating": null,
+    "reviewCount": null,
+    "stock": 1,
+    "images": ["/images/Anthracite/palletized activated carbon.webp","/images/Anthracite/palletized activated carbon-2.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "2mm,3mm,5mm",
+      "applications": [
+        "activated carbon for air purification",
+        "activated carbon for air",
+        "pelletized activated carbon for gas treatment",
+        "pelletized activated carbon in Delhi",
+        "activated carbon pallet for pharmaceutical industries",
+        "activated carbon for odor",
+        "activated carbon pallet",
+        "activated carbon for municipal water purification"
+              ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+    "tags": [
+      "pelletized activated carbon",
+      "pac activated carbon",
+      "activated carbon pellets",
+      "air purification carbon pellets",
+      "activated carbon for air purification",
+      "activated carbon for air",
+      "pelletized activated carbon in delhi",
+      "Activated carbon carbon pallets manufaturer in india"
+    ]
+  },
+
+
+  {
+    "id": "Prod-019",
+    "name": "PP Wound Filter Cartridge (10 Inch)",
+    "slug": "pp-wound-filter-cartridge-10-inch",
+    "description": "Durable PP Wound Filter Cartridge for water and industrial filtration. Provides high dirt holding capacity, chemical resistance, and efficient particle removal.",
+    "detailedDescription": "PP Wound Filter Cartridge made from 100% polypropylene yarn for effective sediment, rust, and particle removal. High dirt holding capacity, chemical resistance, and long service life. Ideal for RO systems, water purification, food, pharma, chemicals, and industrial filtration applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPW10",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Wound Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 5,
+    "reviewCount": 463,
+    "stock": 1,
+    "images": ["/images/Filters/pp wound 10''.webp","/images/Filters/pp wound 10''x2.5.webp","/images/Filters/pp wound 10''x2.5''.webp","/images/Filters/pp wound cartridge filter 10''x4''.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "10\"x2.5\", 10\"x4\", 10\"x4.5\"",
+      "applications": [
+        "Drinking Water Purification",
+        "Reverse Osmosis Pre-filtration",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Food and Beverage Industry",
+        "Pharmaceuticals",
+        "Chemicals",
+        "Petroleum",
+        "Paints",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp wound filter cartridge",
+      "polypropylene wound cartridge",
+      "ro filter cartridge",
+      "sediment filter cartridge",
+      "wound filter",
+      "filter cartridge in Ashok Vihar, Delhi",
+      "water filter cartridge pp",
+      "industrial filter cartridge",
+      "stp etp filter cartridge",
+      "filtration cartridge",
+      "filter cartridge in Delhi"
+    ]
+  },
+  {
+    "id": "Prod-020",
+    "name": "PP Wound Filter Cartridge (20 Inch)",
+    "slug": "pp-wound-filter-cartridge-20-inch",
+    "description": "Durable PP Wound Filter Cartridge for water and industrial filtration. Provides high dirt holding capacity, chemical resistance, and efficient particle removal.",
+    "detailedDescription": "PP Wound Filter Cartridge made from 100% polypropylene yarn for effective sediment, rust, and particle removal. High dirt holding capacity, chemical resistance, and long service life. Ideal for RO systems, water purification, food, pharma, chemicals, and industrial filtration applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPW20",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Wound Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 5,
+    "reviewCount": 480,
+    "stock": 1,
+    "images": ["/images/Filters/pp wound cartridge filter 20''x4''.webp","/images/Filters/pp wound 20''x2.5''.webp","/images/Filters/pp wound cartridge filter 20''x2.5''.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "20\"x2.5\", 20\"x4\", 20\"x4.5\"",
+      "applications": [
+        "Drinking Water Purification",
+        "Reverse Osmosis Pre-filtration",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Food and Beverage Industry",
+        "Pharmaceuticals",
+        "Chemicals",
+        "Petroleum",
+        "Paints",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp wound filter cartridge",
+      "polypropylene wound cartridge",
+      "ro filter cartridge",
+      "sediment filter cartridge",
+      "wound filter",
+      "filter cartridge in Ashok Vihar, Delhi",
+      "water filter cartridge pp",
+      "industrial filter cartridge",
+      "stp etp filter cartridge",
+      "filtration cartridge",
+      "filter cartridge in Delhi"
+    ]
+  },
+  {
+    "id": "Prod-021",
+    "name": "PP Wound Filter Cartridge (30 Inch)",
+    "slug": "pp-wound-filter-cartridge-30-inch",
+    "description": "Durable PP Wound Filter Cartridge for water and industrial filtration. Provides high dirt holding capacity, chemical resistance, and efficient particle removal.",
+    "detailedDescription": "PP Wound Filter Cartridge made from 100% polypropylene yarn for effective sediment, rust, and particle removal. High dirt holding capacity, chemical resistance, and long service life. Ideal for RO systems, water purification, food, pharma, chemicals, and industrial filtration applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPW30",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Wound Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 5,
+    "reviewCount": 510,
+    "stock": 1,
+    "images": ["/images/Filters/pp wound cartridge30''x2.5''.webp","/images/Filters/pp wound 30''x2.5 ''.webp","/images/Filters/pp wound cartridge 30''x2.5''.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "30\"x2.5\"",
+      "applications": [
+        "Drinking Water Purification",
+        "Reverse Osmosis Pre-filtration",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Food and Beverage Industry",
+        "Pharmaceuticals",
+        "Chemicals",
+        "Petroleum",
+        "Paints",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp wound filter cartridge",
+      "polypropylene wound cartridge",
+      "ro filter cartridge",
+      "sediment filter cartridge",
+      "wound filter",
+      "filter cartridge in Ashok Vihar, Delhi",
+      "water filter cartridge pp",
+      "industrial filter cartridge",
+      "stp etp filter cartridge",
+      "filtration cartridge",
+      "filter cartridge in Delhi"
+    ]
+  },
+  {
+    "id": "Prod-022",
+    "name": "PP Wound Filter Cartridge (40 Inch)",
+    "slug": "pp-wound-filter-cartridge-40-inch",
+    "description": "Durable PP Wound Filter Cartridge for water and industrial filtration. Provides high dirt holding capacity, chemical resistance, and efficient particle removal.",
+    "detailedDescription": "PP Wound Filter Cartridge made from 100% polypropylene yarn for effective sediment, rust, and particle removal. High dirt holding capacity, chemical resistance, and long service life. Ideal for RO systems, water purification, food, pharma, chemicals, and industrial filtration applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPW40",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Wound Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 5,
+    "reviewCount": 510,
+    "stock": 1,
+    "images": ["/images/Filters/pp wound 40''x2.5 ''.webp","/images/Filters/pp wound cartridge 40''x2.5''.webp","/images/Filters/PP wound cartridge 40''x2.5'' (2).webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "40\"x2.5\"",
+      "applications": [
+        "Drinking Water Purification",
+        "Reverse Osmosis Pre-filtration",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Food and Beverage Industry",
+        "Pharmaceuticals",
+        "Chemicals",
+        "Petroleum",
+        "Paints",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp wound filter cartridge",
+      "polypropylene wound cartridge",
+      "ro filter cartridge",
+      "sediment filter cartridge",
+      "wound filter",
+      "filter cartridge in Ashok Vihar, Delhi",
+      "water filter cartridge pp",
+      "industrial filter cartridge",
+      "stp etp filter cartridge",
+      "filtration cartridge",
+      "filter cartridge in Delhi"
+    ]
+  },
+  {
+    "id": "Prod-023",
+    "name": "PP Spun Filter Cartridge (10 Inch)",
+    "slug": "pp-spun-filter-cartridge-10-inch",
+    "description": "High-quality PP Spun Filter Cartridge for water purification and industrial filtration. Provides excellent sediment removal, high dirt holding capacity, and long service life.",
+    "detailedDescription": "PP Spun Filter Cartridge, also known as Melt Blown Filter Cartridge, is made from 100% pure polypropylene using advanced melt-blown technology to provide a graded density structure for superior depth filtration. It efficiently removes sediments, rust, dirt, suspended particles, and other fine impurities from water and liquids while offering high dirt holding capacity, low-pressure drop, and consistent flow rate.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPS10",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Spun Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 4.9,
+    "reviewCount": 455,
+    "stock": 1,
+    "images": ["/images/Filters/10inches.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "10\"x2.5\", 10\"x4\", 10\"x4.5\"",
+      "applications": [
+        "RO Systems",
+        "Drinking Water Purification",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Pharmaceuticals",
+        "Food and Beverage Processing",
+        "Chemical Industries",
+        "Petroleum Refining",
+        "Paints and Coatings",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp spun filter cartridge",
+      "pp melt blown filter cartridge",
+      "polypropylene spun filter",
+      "ro spun filter",
+      "water filter cartridge",
+      "sediment filter cartridge",
+      "spun filtration cartridge",
+      "pp spun filter",
+      "stp etp filter cartridge",
+      "filter cartridge Suppliers",
+      "spun filter Cartridge in Delhi",
+      "PP filter cartridge manufacturers"
+    ]
+  },
+  {
+    "id": "Prod-024",
+    "name": "PP Spun Filter Cartridge (20 Inch)",
+    "slug": "pp-spun-filter-cartridge-20-inch",
+    "description": "High-quality PP Spun Filter Cartridge for water purification and industrial filtration. Provides excellent sediment removal, high dirt holding capacity, and long service life.",
+    "detailedDescription": "PP Spun Filter Cartridge, also known as Melt Blown Filter Cartridge, is made from 100% pure polypropylene using advanced melt-blown technology to provide a graded density structure for superior depth filtration. It efficiently removes sediments, rust, dirt, suspended particles, and other fine impurities from water and liquids while offering high dirt holding capacity, low-pressure drop, and consistent flow rate.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPS20",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Spun Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 4.9,
+    "reviewCount": 475,
+    "stock": 1,
+    "images": ["/images/Filters/20inches.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "20\"x2.5\", 20\"x4\", 20\"x4.5\"",
+      "applications": [
+        "RO Systems",
+        "Drinking Water Purification",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Pharmaceuticals",
+        "Food and Beverage Processing",
+        "Chemical Industries",
+        "Petroleum Refining",
+        "Paints and Coatings",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp spun filter cartridge",
+      "pp melt blown filter cartridge",
+      "polypropylene spun filter",
+      "ro spun filter",
+      "water filter cartridge",
+      "sediment filter cartridge",
+      "spun filtration cartridge",
+      "pp spun filter",
+      "stp etp filter cartridge",
+      "filter cartridge Suppliers",
+      "spun filter Cartridge in Delhi",
+      "PP filter cartridge manufacturers"
+    ]
+  },
+  {
+    "id": "Prod-025",
+    "name": "PP Spun Filter Cartridge (30 Inch)",
+    "slug": "pp-spun-filter-cartridge-30-inch",
+    "description": "High-quality PP Spun Filter Cartridge for water purification and industrial filtration. Provides excellent sediment removal, high dirt holding capacity, and long service life.",
+    "detailedDescription": "PP Spun Filter Cartridge, also known as Melt Blown Filter Cartridge, is made from 100% pure polypropylene using advanced melt-blown technology to provide a graded density structure for superior depth filtration. It efficiently removes sediments, rust, dirt, suspended particles, and other fine impurities from water and liquids while offering high dirt holding capacity, low-pressure drop, and consistent flow rate.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPS30",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Spun Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 5,
+    "reviewCount": 540,
+    "stock": 1,
+    "images": ["/images/Filters/30inches.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "30\"x2.5\"",
+      "applications": [
+        "RO Systems",
+        "Drinking Water Purification",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Pharmaceuticals",
+        "Food and Beverage Processing",
+        "Chemical Industries",
+        "Petroleum Refining",
+        "Paints and Coatings",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp spun filter cartridge",
+      "pp melt blown filter cartridge",
+      "polypropylene spun filter",
+      "ro spun filter",
+      "water filter cartridge",
+      "sediment filter cartridge",
+      "spun filtration cartridge",
+      "pp spun filter",
+      "stp etp filter cartridge",
+      "filter cartridge Suppliers",
+      "spun filter Cartridge in Delhi",
+      "PP filter cartridge manufacturers"
+    ]
+  },
+  {
+    "id": "Prod-026",
+    "name": "PP Spun Filter Cartridge (40 Inch)",
+    "slug": "pp-spun-filter-cartridge-40-inch",
+    "description": "High-quality PP Spun Filter Cartridge for water purification and industrial filtration. Provides excellent sediment removal, high dirt holding capacity, and long service life.",
+    "detailedDescription": "PP Spun Filter Cartridge, also known as Melt Blown Filter Cartridge, is made from 100% pure polypropylene using advanced melt-blown technology to provide a graded density structure for superior depth filtration. It efficiently removes sediments, rust, dirt, suspended particles, and other fine impurities from water and liquids while offering high dirt holding capacity, low-pressure drop, and consistent flow rate.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "PPS40",
+    "category": ["Filter Cartridge", "Spare Parts"],
+    "subCategory": "PP Spun Filter Cartridge",
+    "material": "Polypropylene",
+    "rating": 5,
+    "reviewCount": 610,
+    "stock": 1,
+    "images": ["/images/Filters/40inches.webp"],
+    "videoUrl": "",
+    "specs": {
+      "size": "40\"x2.5\"",
+      "applications": [
+        "RO Systems",
+        "Drinking Water Purification",
+        "Sewage Treatment Plants (STP)",
+        "Effluent Treatment Plants (ETP)",
+        "Pharmaceuticals",
+        "Food and Beverage Processing",
+        "Chemical Industries",
+        "Petroleum Refining",
+        "Paints and Coatings",
+        "Textile Industry",
+        "Electronics",
+        "Plating Solutions"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "Installation Guide", "url": "#"}],
+    "tags": [
+      "pp spun filter cartridge",
+      "pp melt blown filter cartridge",
+      "polypropylene spun filter",
+      "ro spun filter",
+      "water filter cartridge",
+      "sediment filter cartridge",
+      "spun filtration cartridge",
+      "pp spun filter",
+      "stp etp filter cartridge",
+      "filter cartridge Suppliers",
+      "spun filter Cartridge in Delhi",
+      "PP filter cartridge manufacturers"
+    ]
+  },
+
+  {
+    "id": "prod-027",
+    "name": "Zeosafe Media",
+    "slug": "zeosafe-filter-media",
+    "description": "Advanced sediment filter media from Europe for superior water purification. Offers better filtrate clarity, increased flow rates, and a long media bed life of 5-10 years.",
+    "detailedDescription": "Zeosafe is a high-performance, naturally green sediment filter media made in Europe, designed for superior purification of drinking water, groundwater, surface water, and more. Its key benefits include better filtrate clarity, increased flow rates in both gravity and pressure systems, reduced backwash water usage, simpler handling, and better cleaning. With a long media bed life of 5-10 years and high capacity filtration, Zeosafe is an efficient and sustainable choice for various water treatment applications, including reverse osmosis pre-filtration and swimming pools.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "ZEO-SAFE-01",
+    "category": ["Filter Media"],
+    "subCategory": "Specialty Media",
+    "material": "Natural Zeolite",
+    "rating": 4.7,
+    "reviewCount": 523,
+    "stock": 1,
+    "images": ["/images/Media/zeosafe2.webp","/images/Media/zeosafe.webp"],
+    "videoUrl": "",
+    "specs": {
+      "meshSize": "16x32",
+      "packing": "25 kg per bag",
+      "life": "5-10 years",
+      "applications": [
+        "Drinking Water Purification",
+        "Ground Water Treatment",
+        "Surface Water Filtration",
+        "Waste Water Treatment",
+        "Swimming Pool Filtration",
+        "Reverse Osmosis Pre-filtration"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+    "tags": [
+      "Zeosafe",
+      "Filter Media",
+      "Sediment Filter",
+      "Water Purification",
+      "Green Product",
+      "European Filter Media",
+      "Zeosafe Media in Delhi",
+      "Zeolite Filter Media"
+    ]
+  },
+  {
+    "id": "prod-028",
+    "name": "Glass Filter Media (4x8)",
+    "slug": "glass-filter-media-4x8",
+    "description": "High-performance crushed glass filter media, an eco-friendly alternative to silica sand. Provides finer filtration, longer life, and requires less backwashing.",
+    "detailedDescription": "Our Glass Filter Media is an environmentally friendly and highly effective alternative to traditional sand for water filtration systems. Made from 100% recycled crushed glass, it provides superior water clarity by removing finer particles. The angular shape of the glass particles prevents channeling and ensures a more efficient filtration process. It is less prone to bio-fouling, requires less backwashing (saving water and energy), and has a longer lifespan than sand, making it a cost-effective and sustainable choice for swimming pools, industrial water treatment, and potable water applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "GFM-01",
+    "category": ["Filter Media"],
+    "subCategory": "Glass Media",
+    "material": "Recycled Glass",
+    "rating": 4.5,
+    "reviewCount": 321,
+    "stock": 1,
+    "images": ["/images/Media/glass-media-4-2.webp", "/images/Media/glass-media-4.webp"],
+    "videoUrl": "",
+    "specs": {
+      "meshSize": "4x8",
+      "PackageSize": "25Kgs per bag",
+      "applications": [
+        "Swimming Pool Filtration",
+        "Potable Water Treatment",
+        "Industrial Water Filtration",
+        "Aquaculture Systems",
+        "Replacement for Silica Sand"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+    "tags": [
+      "Glass Filter Media",
+      "Filter Media",
+      "Sand Replacement",
+      "Pool Filter Media",
+      "Eco-friendly Filtration",
+      "Recycled Glass Media",
+      "Glass Media in Delhi"
+    ]
+  },
+  {
+    "id": "prod-029",
+    "name": "Glass Filter Media (8x16)",
+    "slug": "glass-filter-media-8x16",
+    "description": "High-performance crushed glass filter media, an eco-friendly alternative to silica sand. Provides finer filtration, longer life, and requires less backwashing.",
+    "detailedDescription": "Our Glass Filter Media is an environmentally friendly and highly effective alternative to traditional sand for water filtration systems. Made from 100% recycled crushed glass, it provides superior water clarity by removing finer particles. The angular shape of the glass particles prevents channeling and ensures a more efficient filtration process. It is less prone to bio-fouling, requires less backwashing (saving water and energy), and has a longer lifespan than sand, making it a cost-effective and sustainable choice for swimming pools, industrial water treatment, and potable water applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "GFM-01",
+    "category": ["Filter Media"],
+    "subCategory": "Glass Media",
+    "material": "Recycled Glass",
+    "rating": 4.5,
+    "reviewCount": 321,
+    "stock": 1,
+    "images": ["/images/Media/glass-media-8-2.webp", "/images/Media/glass-media-8.webp"],
+    "videoUrl": "",
+    "specs": {
+      "meshSize": "8x16",
+      "PackageSize": "25Kgs per bag",
+      "applications": [
+        "Swimming Pool Filtration",
+        "Potable Water Treatment",
+        "Industrial Water Filtration",
+        "Aquaculture Systems",
+        "Replacement for Silica Sand"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+    "tags": [
+      "Glass Filter Media",
+      "Filter Media",
+      "Sand Replacement",
+      "Pool Filter Media",
+      "Eco-friendly Filtration",
+      "Recycled Glass Media",
+      "Glass Media in Delhi"
+    ]
+  },
+  {
+    "id": "prod-030",
+    "name": "Glass Filter Media (16x32)",
+    "slug": "glass-filter-media-16x32",
+    "description": "High-performance crushed glass filter media, an eco-friendly alternative to silica sand. Provides finer filtration, longer life, and requires less backwashing.",
+    "detailedDescription": "Our Glass Filter Media is an environmentally friendly and highly effective alternative to traditional sand for water filtration systems. Made from 100% recycled crushed glass, it provides superior water clarity by removing finer particles. The angular shape of the glass particles prevents channeling and ensures a more efficient filtration process. It is less prone to bio-fouling, requires less backwashing (saving water and energy), and has a longer lifespan than sand, making it a cost-effective and sustainable choice for swimming pools, industrial water treatment, and potable water applications.",
+    "negotiable": true,
+    "price": null,
+    "salePrice": null,
+    "sku": "GFM-01",
+    "category": ["Filter Media"],
+    "subCategory": "Glass Media",
+    "material": "Recycled Glass",
+    "rating": 4.5,
+    "reviewCount": 321,
+    "stock": 1,
+    "images": ["/images/Media/glass-media-16-2.webp", "/images/Media/glass-media-16.webp"],
+    "videoUrl": "",
+    "specs": {
+      "meshSize": "16x32",
+      "PackageSize": "25Kgs per bag",
+      "applications": [
+        "Swimming Pool Filtration",
+        "Potable Water Treatment",
+        "Industrial Water Filtration",
+        "Aquaculture Systems",
+        "Replacement for Silica Sand"
+      ]
+    },
+    "documents": [{"name": "Product Sheet", "url": "#"}, {"name": "MSDS", "url": "#"}],
+    "tags": [
+      "Glass Filter Media",
+      "Filter Media",
+      "Sand Replacement",
+      "Pool Filter Media",
+      "Eco-friendly Filtration",
+      "Recycled Glass Media",
+      "Glass Media in Delhi"
+    ]
+  }
+  ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "filters": {
+    "categories": ["Filter Media","Cooling Tower-Media-Spares", "Filter Cartridge", "Activated Carbon", "Anthracite Media", "Silica Sand", "Plants and Machinery", "Spare Parts"],
+    "materials": ["Ceramic", "Carbon", "Coal", "Wood", "Coconut Shell", "Stainless Steel", "Minerals", "Plastic", "Glass"],
+    "priceRanges": [{"label": "Under ₹25", "min": 0, "max": 25}, {"label": "₹25 - ₹50", "min": 25, "max": 50}, {"label": "₹50 - ₹100", "min": 50, "max": 100}, {"label": "Over ₹100", "min": 100, "max": 1000}]
+  }
+}

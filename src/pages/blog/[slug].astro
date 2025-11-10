@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import articlesData from '/public/data/blog.json';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return articlesData.articles.map(article => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const mainImage = article.images[0];
+---
+
+<Layout 
+    title={article.title}
+    description={article.excerpt}
+    keywords={article.tags.join(', ')}
+>
+    <section class="blog-hero">
+        <div class="blog-hero-bg" style={`background-image: url(${mainImage})`}></div>
+        <div class="blog-hero-overlay"></div>
+        <div class="blog-hero-content">
+            <h1 class="blog-title">{article.title}</h1>
+            <div class="article-meta" style="color: var(--text-muted); justify-content: center;">
+              <span class="category-tag">{article.category}</span>
+              <span class="date">{article.date}</span>
+              <span class="read-time">{article.readTime}</span>
+            </div>
+            <div class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a> &gt; <a href="/blog">Blog</a> &gt; <span>{article.title}</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container article-container">
+        <div class="article-visual-pane">
+            {article.contentSections.map((section, index) => {
+                const imageSrc = article.images[section.imageIndex];
+                return (
+                    <img 
+                        src={imageSrc} 
+                        alt={`${article.title} - section ${index + 1}`} 
+                        class={`visual-item visual-item-${section.imageIndex}`}
+                        style={index !== 0 ? 'display: none;' : ''}
+                    />
+                );
+            })}
+        </div>
+
+        <div class="article-content-pane">
+            {article.contentSections.map((section, index) => {
+                const imageSrc = article.images[section.imageIndex];
+                return (
+                    <section class="content-section" data-image-index={section.imageIndex}>
+                        <img 
+                            src={imageSrc} 
+                            alt={`${article.title} - section ${index + 1}`} 
+                            class="mobile-visual-item"
+                        />
+                        <div class="prose" set:html={section.html} />
+                    </section>
+                )
+            })}
+            
+            <div class="article-tags" style="margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                <h3 style="margin-bottom: 15px;">Tags</h3>
+                <div class="product-tags">
+                    {article.tags.map(tag => (
+                        <a href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`} class="filter-chip">{tag}</a>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    /* Mobile-first styles: Stacked layout */
+    .article-container {
+        padding: 40px 20px;
+    }
+    .article-visual-pane {
+        display: none; /* Hide the desktop image pane on mobile */
+    }
+    .mobile-visual-item {
+        display: block; /* Show the mobile image */
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 25px;
+    }
+    .content-section {
+        margin-bottom: 30px;
+    }
+
+    /* Desktop styles: Two-column sticky layout */
+    @media (min-width: 769px) {
+        .article-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px 20px;
+            align-items: flex-start;
+        }
+        .article-visual-pane {
+            display: block; /* Show the desktop pane */
+            position: sticky;
+            top: 120px;
+            height: 70vh;
+        }
+        .visual-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            transition: opacity 0.4s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .mobile-visual-item {
+            display: none; /* Hide the mobile image on desktop */
+        }
+        .article-content-pane {
+            padding-right: 20px;
+        }
+        .content-section {
+            min-height: 70vh;
+            padding-bottom: 20vh;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+    }
+
+    /* General prose styles */
+    .prose {
+        line-height: 1.8;
+        font-size: 16px;
+        color: var(--text-secondary);
+        max-width: 100%;
+    }
+    .prose h3 {
+        color: var(--text-primary);
+        font-family: 'Playfair Display', serif;
+        margin: 1em 0 0.8em;
+    }
+    .prose p { margin-bottom: 1.2em; }
+</style>
+
+<script define:vars={{ images: article.images }}>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Only run the sticky script on desktop
+        if (window.innerWidth < 769) return;
+
+        const visualItems = document.querySelectorAll('.visual-item');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        if (visualItems.length === 0 || contentSections.length === 0) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const imageIndex = parseInt(entry.target.dataset.imageIndex, 10);
+                    
+                    // Hide all images
+                    visualItems.forEach(item => item.style.display = 'none');
+                    
+                    // Show the correct one
+                    const activeImage = document.querySelector(`.visual-item-${imageIndex}`);
+                    if (activeImage) {
+                        activeImage.style.display = 'block';
+                    }
+                }
+            });
+        }, { 
+            root: null,
+            threshold: 0.5 
+        });
+
+        contentSections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>

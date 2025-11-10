@@ -1,0 +1,237 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import productsData from '/public/data/products.json';
+import siteData from '/public/data/data.json';
+
+export const prerender = true;
+
+// This function ensures a page is built for EVERY category from your main data file
+export function getStaticPaths() {
+  const allProducts = productsData.products;
+  const allCategories = siteData.categories; 
+
+  return allCategories.map(category => {
+    const categoryName = category.name;
+    const productsForThisCategory = allProducts.filter(product => {
+      const productCategories = Array.isArray(product.category) ? product.category : [product.category];
+      return productCategories.includes(categoryName);
+    });
+    const slug = categoryName.toLowerCase().replace(/\s+/g, '-');
+    
+    return {
+      params: { slug: slug },
+      props: { categoryName: categoryName, products: productsForThisCategory },
+    };
+  });
+}
+
+const { categoryName, products } = Astro.props;
+
+function renderPrice(p) {
+  if (p.negotiable) return `<span class="negotiable-text">Negotiable</span>`;
+  if (p.salePrice) return `<span class="original">₹${Number(p.price ?? 0).toFixed(2)}</span> <span class="sale">₹${Number(p.salePrice ?? 0).toFixed(2)}</span>`;
+  return `₹${Number(p.price ?? 0).toFixed(2)}`;
+}
+---
+
+<Layout 
+    title={`${categoryName} Products`}
+    description={`Browse all of our ${categoryName} products.`}
+>
+    <section class="shop-hero">
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-overlay"></div>
+        <div class="shop-hero-content">
+            <h1>{categoryName}</h1>
+            <p class="shop-hero-subtitle">Premium filtration solutions for the {categoryName} category</p>
+            <div class="breadcrumbs">
+               <a href="/">Home</a><span class="separator">/</span><a href="/listing">Shop</a><span class="separator">/</span><span class="active">{categoryName}</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="shop-controls">
+            <div class="results-count"></div>
+            <div class="sort-by">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="relevance">Relevance</option>
+                    <option value="price-low">Price Low-High</option>
+                    <option value="price-high">Price High-Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="shop-container">
+            <div class="filter-sidebar" id="filterSidebar" style="display:block; max-height:fit-content;">
+                 <div class="filter-search">
+                    <input type="text" id="categorySearchInput" placeholder="Search in this category...">
+                </div>
+                <button class="clear-filters">Clear Search</button>
+            </div>
+
+            <div class="products-grid card-grid">
+                {products.length > 0 ? (
+                    products.map(product => {
+                        const isInStock = product.stock > 0;
+                        return (
+                            <div class="product-card"
+                                data-price={product.negotiable ? 0 : (product.salePrice || product.price)}
+                                data-name={product.name.toLowerCase()}
+                                data-desc={product.description.toLowerCase()}
+                                data-id-num={parseInt(product.id.split('-')[1] || 0)}
+                                style="display:none;"
+                            >
+                                <div class="product-image">
+                                    <a href={`/product/${product.slug}`}>
+                                    <img src={product.images[0] || ''} alt={product.name} loading="lazy" />
+                                    </a>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="product-name">{product.name}</h3>
+                                    <p class="product-desc">{product.description}</p>
+                                    <div class="product-price" set:html={renderPrice(product)} />
+                                    <div class={`stock-status ${isInStock ? 'in-stock' : 'out-of-stock'}`}>
+                                        {isInStock ? 'In Stock' : 'Out of Stock'}
+                                    </div>
+                                    <div class="product-buttons">
+                                        <a href={`/product/${product.slug}`} class="btn-outline-listing">View Details</a>
+                                        <button class="btn-solid-listing add-to-cart" disabled={!isInStock} data-id={product.id}>
+                                            {isInStock ? 'Add to Cart' : 'Out of Stock'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <p>No products found in this category at the moment.</p>
+                        <a href="/listing" class="btn-primary" style="margin-top: 20px;">Back to Shop</a>
+                    </div>
+                )}
+            </div>
+        </div>
+
+        <ul class="pagination"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- ELEMENTS ---
+            const productsGrid = document.querySelector('.products-grid');
+            const allProductCards = Array.from(productsGrid.querySelectorAll('.product-card'));
+            const resultsCountEl = document.querySelector('.results-count');
+            const paginationEl = document.querySelector('.pagination');
+            const searchInput = document.getElementById('categorySearchInput');
+            const sortSelect = document.getElementById('sort');
+            const clearFiltersBtn = document.querySelector('.clear-filters');
+
+            // --- STATE ---
+            let currentPage = 1;
+            const itemsPerPage = 9;
+
+            if (allProductCards.length === 0) {
+                resultsCountEl.textContent = 'Showing 0 of 0 products';
+                return; // Stop script if no products
+            }
+
+            // --- EVENT LISTENERS ---
+            searchInput.addEventListener('input', () => applyFiltersAndSort());
+            sortSelect.addEventListener('change', () => applyFiltersAndSort());
+            clearFiltersBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                sortSelect.value = 'relevance';
+                applyFiltersAndSort();
+            });
+            productsGrid.addEventListener('click', function(e) {
+                if (e.target.matches('.add-to-cart')) {
+                    if(typeof addToCart === 'function') {
+                        addToCart(e.target.dataset.id, e.target);
+                    }
+                }
+            });
+
+            // --- LOGIC ---
+            function applyFiltersAndSort() {
+                currentPage = 1; // Reset page on filter
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const sortBy = sortSelect.value;
+
+                const filteredCards = allProductCards.filter(card => {
+                    const name = card.dataset.name || '';
+                    const desc = card.dataset.desc || '';
+                    return name.includes(searchTerm) || desc.includes(searchTerm);
+                });
+
+                const sortedCards = sortDom(filteredCards, sortBy);
+                
+                renderPage(sortedCards, currentPage);
+            }
+
+            function sortDom(cards, sortBy) {
+                const sorted = [...cards].sort((a, b) => {
+                    const priceA = parseFloat(a.dataset.price);
+                    const priceB = parseFloat(b.dataset.price);
+                    const idA = parseInt(a.dataset.idNum);
+                    const idB = parseInt(b.dataset.idNum);
+                    switch (sortBy) {
+                        case 'price-low': return priceA - priceB;
+                        case 'price-high': return priceB - priceA;
+                        case 'newest': return idB - idA;
+                        default: return 0;
+                    }
+                });
+                sorted.forEach(card => productsGrid.appendChild(card));
+                return sorted;
+            }
+
+            function renderPage(cards, page) {
+                allProductCards.forEach(card => card.style.display = 'none');
+                
+                const startIndex = (page - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const pageCards = cards.slice(startIndex, endIndex);
+                pageCards.forEach(card => card.style.display = 'flex');
+
+                updateResultsCount(cards.length, page);
+                renderPaginationControls(cards.length, page);
+            }
+
+            function updateResultsCount(total, page) {
+                const start = total === 0 ? 0 : (page - 1) * itemsPerPage + 1;
+                const end = Math.min(page * itemsPerPage, total);
+                resultsCountEl.textContent = `Showing ${start}–${end} of ${total} products`;
+            }
+
+            function renderPaginationControls(totalItems, page) {
+                paginationEl.innerHTML = '';
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                if (totalPages <= 1) return;
+
+                const createPageItem = (text, pageNum, isDisabled, isActive) => `<li class="page-item ${isDisabled ? 'disabled' : ''} ${isActive ? 'active' : ''}"><a class="page-link" href="#" data-page="${pageNum}">${text}</a></li>`;
+                
+                let html = createPageItem('Previous', page - 1, page === 1);
+                for (let i = 1; i <= totalPages; i++) {
+                    html += createPageItem(i, i, false, i === page);
+                }
+                html += createPageItem('Next', page + 1, page === totalPages);
+                paginationEl.innerHTML = html;
+            }
+
+            paginationEl.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = e.target.closest('.page-link');
+                if (target && !target.closest('.disabled')) {
+                    currentPage = parseInt(target.dataset.page);
+                    applyFiltersAndSort();
+                }
+            });
+
+            // --- INITIALIZATION ---
+            applyFiltersAndSort();
+        });
+    </script>
+</Layout>

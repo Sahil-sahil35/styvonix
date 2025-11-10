@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import productsData from '/public/data/products.json';
+
+const allProducts = productsData.products;
+const filters = productsData.filters;
+
+// Helper function to render price, same as in your [slug].astro
+function renderPrice(p) {
+  if (p.negotiable) {
+    return `<span class="negotiable-text">Negotiable</span>`;
+  }
+  if (p.salePrice) {
+    const base = Number(p.price ?? 0).toFixed(2);
+    const sale = Number(p.salePrice ?? 0).toFixed(2);
+    return `<span class="original">₹${base}</span> <span class="sale">₹${sale}</span>`;
+  }
+  const base = Number(p.price ?? 0).toFixed(2);
+  return `₹${base}`;
+}
+---
+
+<Layout 
+    title="Shop All Products - Styvonix Future Pvt. Ltd."
+    description="Browse our complete collection of premium water filtration products including filter media, activated carbon, silica sand, and purification systems."
+    keywords="shop water filters, filter media products, activated carbon, silica sand, water treatment products, filtration systems"
+>
+    <section class="shop-hero">
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-overlay"></div>
+        <div class="shop-hero-content">
+            <h1>Styvonix Future Pvt. Ltd.</h1>
+            <p class="shop-hero-subtitle">Premium filtration solutions for home, commercial, and industrial needs. Experience the future of clean water technology</p>
+            <div class="breadcrumbs">
+               <a href="/">Home</a>
+               <span class="separator">/</span>
+               <a href="/listing" class="active">Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="shop-controls">
+            <div class="results-count"></div>
+            <div class="sort-by">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="relevance">Relevance</option>
+                    <option value="price-low">Price Low-High</option>
+                    <option value="price-high">Price High-Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="shop-container">
+            <button class="filter-toggle" id="filterToggle">Filters</button>
+            <div class="filter-sidebar" id="filterSidebar">
+                <div class="filter-search">
+                    <input type="text" placeholder="Search products...">
+                </div>
+
+                <div class="filter-group">
+                    <h3>Categories</h3>
+                    <div class="filter-options" id="category-filters">
+                        {filters.categories.map(category => (
+                            <div class="filter-option">
+                                <input type="checkbox" id={`filter-${category.toLowerCase().replace(/\s+/g, '-')}`} value={category} />
+                                <label for={`filter-${category.toLowerCase().replace(/\s+/g, '-')}`}>{category}</label>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Material</h3>
+                    <div class="filter-chips" id="material-chips">
+                        {filters.materials.map(material => (
+                             <div class="filter-chip" data-value={material}>{material}</div>
+                        ))}
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Price Range</h3>
+                    <input type="range" class="price-range" min="0" max="200" value="200"/>
+                    <div class="price-range-values">
+                        <span>₹0</span>
+                        <span>₹200</span>
+                    </div>
+                </div>
+
+                <button class="clear-filters">Clear All Filters</button>
+            </div>
+
+            <div class="products-grid card-grid">
+                {allProducts.map(product => {
+                    const isInStock = product.stock > 0;
+                    const categoryString = JSON.stringify(Array.isArray(product.category) ? product.category : [product.category]);
+                    const materialString = JSON.stringify(Array.isArray(product.material) ? product.material : [product.material]);
+
+                    return (
+                        <div class="product-card" 
+                            data-price={product.negotiable ? 0 : (product.salePrice || product.price)}
+                            data-category={categoryString}
+                            data-material={materialString}
+                            data-name={product.name.toLowerCase()}
+                            data-desc={product.description.toLowerCase()}
+                            data-id-num={parseInt(product.id.split('-')[1] || 0)}
+                            style="display: none;"
+                            
+                        >
+                            <div class="product-image">
+                                <a href={`/product/${product.slug}`}>
+                                <img src={product.images[0] || ''} alt={product.name} loading="lazy" />
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="product-name">{product.name}</h3>
+                                <p class="product-desc">{product.description}</p>
+                                <div class="product-price" set:html={renderPrice(product)} />
+                                <div class={`stock-status ${isInStock ? 'in-stock' : 'out-of-stock'}`}>
+                                    {isInStock ? 'In Stock' : 'Out of Stock'}
+                                </div>
+                                <div class="product-buttons">
+                                    <a href={`/product/${product.slug}`} class="btn-outline-listing">View Details</a>
+                                    <button
+                                        class="btn-solid-listing add-to-cart"
+                                        disabled={!isInStock}
+                                        data-id={product.id}
+                                    >
+                                        {isInStock ? 'Add to Cart' : 'Out of Stock'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+
+        <ul class="pagination"></ul>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="/js/listing.js" is:inline></script>
+</Layout>

@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import blogData from '/public/data/blog.json';
+
+const allArticles = blogData.articles;
+const featuredArticle = allArticles.find(a => a.featured);
+const nonFeaturedArticles = allArticles.filter(a => !a.featured);
+---
+
+<Layout 
+    title="Blog - Styvonix Future Pvt. Ltd."
+    description="Stay updated with the latest insights, news, and innovations in water filtration technology. Read our expert articles on filtration solutions and industry trends."
+    keywords="water filtration blog, filtration technology news, industry insights, water treatment articles, filter media guides"
+>
+    <section class="blog-hero">
+        <div class="blog-hero-bg"></div>
+        <div class="blog-hero-overlay"></div>
+        <div class="blog-hero-content">
+            <h1 class="blog-title">Knowledge Hub</h1>
+            <p class="blog-subtitle">Insights, guides, and resources on water filtration and purification solutions.</p>
+            <div class="breadcrumb" aria-label="Breadcrumb">Home &gt; Blog</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section featured-section">
+            <h2 class="section-title">Featured Article</h2>
+            {featuredArticle && (
+                <div class="featured-card">
+                  <div class="featured-image">
+                    <img src={featuredArticle.images[0]} alt={featuredArticle.title} loading="eager"/>
+                  </div>
+                  <div class="featured-content">
+                    <span class="category-tag">{featuredArticle.category}</span>
+                    <h2>{featuredArticle.title}</h2>
+                    <p class="featured-excerpt">{featuredArticle.excerpt}</p>
+                    <div class="article-meta">
+                      <span class="date">{featuredArticle.date}</span>
+                      <span class="read-time">{featuredArticle.readTime}</span>
+                    </div>
+                    <a href={`/blog/${featuredArticle.slug}`} class="read-more">Read More →</a>
+                  </div>
+                </div>
+            )}
+        </section>
+
+        <section class="blog-content">
+            <div class="blog-container">
+                <div class="blog-controls">
+                    <div class="search-container">
+                         <input type="text" placeholder="Search articles..." id="blogSearch"/>
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <div class="filter-chips">
+                        <span class="filter-chip active" data-category="all">All</span>
+                        <span class="filter-chip" data-category="Filter Media">Filter Media</span>
+                        <span class="filter-chip" data-category="Carbon">Activated Carbon</span>
+                        <span class="filter-chip" data-category="Silica Sand">Silica Sand</span>
+                        <span class="filter-chip" data-category="Industrial">Industrial</span>
+                    </div>
+                </div>
+
+                <div class="blog-grid card-grid" id="blogGrid">
+                    {nonFeaturedArticles.map(article => (
+                         <article class="blog-card" 
+                            data-category={article.category} 
+                            data-title={article.title.toLowerCase()}
+                            data-excerpt={article.excerpt.toLowerCase()}
+                            style="display: none;"
+                         >
+                            <div class="blog-card-image">
+                              <img src={article.images[0]} alt={article.title} loading="lazy"/>
+                            </div>
+                            <div class="blog-card-content">
+                              <span class="category-tag">{article.category}</span>
+                              <h3>{article.title}</h3>
+                              <p class="blog-excerpt">{article.excerpt}</p>
+                              <div class="article-meta">
+                                <span class="date">{article.date}</span>
+                                <span class="read-time">{article.readTime}</span>
+                              </div>
+                              <a href={`/blog/${article.slug}`} class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                <div class="pagination" id="blogPagination"></div>
+            </div>
+        </section>
+    </div>
+
+    <section class="about-cta">
+        <div class="about-cta-bg"></div>
+        <div class="about-cta-overlay"></div>
+        <div class="container">
+            <div class="about-cta-content">
+                <h2>Need help choosing the right solution?</h2>
+                <p>Reach out to us for expert guidance on water filtration systems.</p>
+                <a href="#" class="btn-primary js-contact-modal-trigger">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/blog.js" is:inline></script>
+</Layout>

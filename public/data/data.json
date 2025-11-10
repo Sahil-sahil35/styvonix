@@ -1,0 +1,133 @@
+{
+  "site": {
+    "title": "Styvonix Future Pvt. Ltd.",
+    "tagline": "Pure Water. Pure Innovation.",
+    "description": "Premium filtration solutions for home, commercial, and industrial needs. Experience the future of clean water technology.",
+    "contact": {
+      "email": "info@styvonix.com",
+      "phone": "+91-9501642199",
+      "address": "PLOT NO 13, BASEMENT FLOOR BLK-C-2, Ashok Vihar, Delhi, North West Delhi- 110052, Delhi, India",
+      "hours": "Mon-Sat 9AM-6PM EST"
+    },
+    "social": {
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#",
+      "linkedin": "#"
+    }
+  },
+  "navigation": [
+    {"name": "Home", "link": "#home"},
+    {"name": "Shop", "link": "#shop"},
+    {"name": "Categories", "link": "#categories"},
+    {"name": "About", "link": "#about"},
+    {"name": "Contact", "link": "#contact"}
+  ],
+  "hero": {
+    "stats": [
+      {"value": "100%", "label": "Quality assurance"},
+      {"value": "10+", "label": "Countries"},
+      {"value": "10K+", "label": "Satisfied Coustomers"}
+    ]
+  },
+  "categories": [
+    {
+      "name": "Filter Media",
+      "description": "High-performance filtration media for all industrial applications",
+      "image": "/images/Background-img/Media.webp"
+    },
+    {
+      "name": "Cooling Tower-Media-Spares",
+      "description": "Cooling tower media (fill) are durable, heat-transfer surfaces...",
+      "image": "/images/Carbon/Cooling-tower-drift-1.webp"
+    },
+    {
+      "name": "Filter Cartridge",
+      "description": "Precision-engineered ceramic candles for superior filtration",
+      "image": "/images/Background-img/Filters.webp"
+    },
+    {
+      "name": "Activated Carbon",
+      "description": "Premium activated carbon for maximum adsorption capacity",
+      "image": "/images/Background-img/Carbon.webp"
+    },
+    {
+      "name": "Anthracite Media",
+      "description": "Premium Anthracite Media for maximum adsorption capacity",
+      "image": "/images/Background-img/anthra.webp"
+    },
+    {
+      "name": "Silica Sand",
+      "description": "Ultra-pure silica sand for water treatment systems",
+      "image": "/images/Background-img/silica.webp"
+    },
+    {
+      "name": "Plants and Machinery",
+      "description": "Complete range of filtration accessories and components",
+      "image": "/images/Background-img/Plant.webp"
+    },
+    {
+      "name": "Spare Parts",
+      "description": "Genuine replacement parts for all filtration systems",
+      "image": "/images/Background-img/parts.webp"
+    }
+  ],
+  "features": [
+    {
+      "title": "Certified Quality",
+      "description": "All our products meet international quality standards and certifications for optimal performance and safety in every application.",
+      "icon": "✓"
+    },
+    {
+      "title": "Fast & Secure Shipping",
+      "description": "Quick delivery with secure packaging to ensure your products arrive in perfect condition, anywhere in the world.",
+      "icon": "🚚"
+    },
+    {
+      "title": "Expert Support",
+      "description": "Our technical team provides professional guidance and 24/7 support for all your filtration needs and challenges.",
+      "icon": "💬"
+    }
+  ],
+  "testimonials": [
+    {
+      "text": "\"Styvonix Future has revolutionized the way filtration systems have completely transformed our water quality. The difference is remarkable, and their customer service is absolutely exceptional.\"",
+      "author": "Sarah Johnson, Industrial Operations Manager"
+    },
+    {
+      "text": "\"We've been using Styvonix Future's filtration products for over 3 years now. The reliability and performance are unmatched in the industry. Highly recommended!\"",
+      "author": "Michael Chen, Water Treatment Specialist"
+    },
+    {
+      "text": "\"The technical support team at Styvonix Future is incredible. They helped us design a custom solution that exceeded our expectations.\"",
+      "author": "Emily Rodriguez, Plant Manager"
+    },
+    {
+      "text": "\"Outstanding product quality and fast delivery. Styvonix Future has become our go-to supplier for all filtration needs.\"",
+      "author": "David Thompson, Procurement Director"
+    },
+    {
+      "text": "\"The cost savings we've achieved with Styvonix Future's efficient filtration systems have been substantial. Great investment!\"",
+      "author": "Lisa Park, Operations Manager"
+    }
+  ],
+  "footer": {
+    "shopLinks": [
+      { "name": "Home", "link": "index.html" },
+      { "name": "Shop", "link": "html/listing.html" },
+      { "name": "Services", "link": "html/services.html" },
+      { "name": "Blog", "link": "html/Blog.html" },
+      { "name": "About", "link": "html/about.html" },
+      { "name": "Contact", "link": "#", "isModalTrigger": true }
+    ],
+    "categories": [
+      {"name": "Filter Media", "link": "#"},
+      {"name": "Cooling Tower-Media-Spares", "link": "#"},
+      {"name": "Cartridge Filter", "link": "#"},
+      {"name": "Activated Carbon", "link": "#"},
+      {"name": "Silica Sand", "link": "#"},
+      {"name": "Plants and Machinery", "link": "#"},
+      {"name": "Spare Parts", "link": "#"}
+    ]
+  }
+}

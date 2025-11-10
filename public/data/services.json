@@ -1,0 +1,96 @@
+{
+  "services": [
+    {
+      "id": "serv-001",
+      "title": "Industrial Water Treatment Solutions",
+      "excerpt": "Comprehensive solutions for large-scale industrial water purification, ensuring compliance and efficiency. We handle everything from system design to implementation.",
+      "imageUrl": "/images/Services/Industrial-Water-Treatment-Solutions.webp",
+      "tags": ["Industrial Water Treatment", "Custom Design", "System Installation", "RO Plant", "DM Plant"
+        ,"Water Treatment Plant Installation",
+        "Industrial Water Solutions",
+        "Water Softener Plant",
+        "RO Plant",
+        "DM Plant",
+        "Plants and Machinery",
+        "RO Plant in Delhi",
+        "DM Plant in Delhi",
+        "water softener plant in delhi"]
+    },
+    {
+      "id": "serv-002",
+      "title": "Commercial Filtration Systems",
+      "excerpt": "High-performance filtration systems for businesses, restaurants, and offices. Ensure your customers and employees have access to the purest water.",
+      "imageUrl": "/images/Services/Commercial Filtration Systems.webp",
+      "tags": ["Commercial Filtration", "System Installation", "Drinking Water", "RO Plant",
+            "AMC for Water Treatment Plants",
+        "Water Treatment Maintenance",
+        "Water Softener Plant",
+        "RO Plant",
+        "DM Plant",
+        "Industrial Water Softener",
+        "Industrial RO System",
+        "Industrial DM Plant",
+        "Plants and Machinery"]
+    },
+    {
+      "id": "serv-003",
+      "title": "Residential Water Purification",
+      "excerpt": "State-of-the-art RO and UV purification systems for your home. We provide installation, maintenance, and support for all our products.",
+      "imageUrl": "/images/Services/Residential Water Purification.webp",
+      "tags": ["Residential Use", "Drinking Water", "Maintenance & Support", "System Installation",
+            "Filter Media Replacement",
+        "Filtration Services",
+        "Filter Media",
+        "Activated Carbon",
+        "Silica Sand",
+        "Anthracite Media",
+        "Pebbles Media",
+        "Gravel Media",
+        "Filter Media Calculator",
+        "Activated Carbon for water treatment"]
+    },
+    {
+      "id": "serv-004",
+      "title": "Bulk Filter Media Supply",
+      "excerpt": "Reliable supply of high-quality filter media including activated carbon, silica sand, and anthracite for your existing filtration plants.",
+      "imageUrl": "/images/Services/Bulk Filter Media Supply.webp",
+      "tags": ["Filter Media", "Bulk Supply", "Activated Carbon", "Silica Sand", "Anthracite",
+            "Cooling Tower Maintenance",
+        "Cooling Tower-Media-Spares",
+        "cooling tower fills",
+        "cooling tower drift eliminator",
+        "pvc cooling tower fill",
+        "industrial cooling tower media",
+        "cooling tower spare parts"]
+    },
+    {
+      "id": "serv-005",
+      "title": "System Maintenance & Support",
+      "excerpt": "Our expert technicians provide annual maintenance contracts (AMC), on-call support, and genuine spare parts to keep your systems running smoothly.",
+      "imageUrl": "/images/Services/System Maintenance & Support.webp",
+      "tags": ["Maintenance & Support", "Spare Parts", "Technical Support",
+            "ETP Maintenance",
+        "STP Operation",
+        "Wastewater Treatment",
+        "bio pack media",
+        "mbbr media",
+        "stp media",
+        "etp media",
+        "sewage treatment plant media"]
+    },
+    {
+      "id": "serv-006",
+      "title": "Water Quality Testing",
+      "excerpt": "Professional water quality analysis to identify contaminants and recommend the most effective and economical treatment solution for your needs.",
+      "imageUrl": "/images/Services/Water Quality Testing.webp",
+      "tags": ["Water Quality Testing", "Consultation", "Technical Support",
+            "Water Audit",
+        "Water Conservation",
+        "Industrial Water Treatment",
+        "Water Management",
+        "RO Plant",
+        "DM Plant",
+        "Water Softener"]
+    }
+  ]
+}

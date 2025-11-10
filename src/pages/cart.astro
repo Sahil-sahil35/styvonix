@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+    title="Your Cart - Styvonix Future Pvt. Ltd."
+    description="Review your selected water filtration products and contact us for pricing and availability. Temporary cart for inquiry purposes."
+    keywords="shopping cart, product inquiry, water filter cart, bulk order inquiry, product selection"
+>
+    <!-- Cart Intro Bar -->
+    <section class="cart-intro">
+        <div class="cart-intro-inner">
+            <div class="breadcrumb" aria-label="Breadcrumb">Home &gt; Cart</div>
+            <h1 class="cart-title">Your Cart</h1>
+            <p class="cart-subtitle">Items here are temporary and will be cleared when you leave.</p>
+        </div>
+    </section>
+
+    <!-- Main -->
+    <main class="container cart-container" role="main">
+        <!-- Left: Cart Items -->
+        <section class="cart-items-panel" aria-labelledby="cartItemsHeading">
+            <div class="cart-items-toolbar">
+                <label class="checkbox">
+                    <input type="checkbox" id="selectAll" aria-label="Select all items">
+                    <span>Select All</span>
+                </label>
+                <button class="btn-outline-cart danger" id="removeSelected" disabled aria-disabled="true">Remove Selected</button>
+            </div>
+
+            <div id="cartItems" class="cart-items" role="list" aria-live="polite" aria-busy="false">
+                <!-- JS inserts items or empty state -->
+            </div>
+        </section>
+
+        <!-- Right: Contact Form + Summary -->
+        <aside class="contact-panel" aria-labelledby="contactPanelHeading">
+            <h2 id="contactPanelHeading" class="panel-title">Contact Us About Selected Items</h2>
+
+            <!-- Muted placeholder (no selection) -->
+            <div id="noSelection" class="no-selection" role="status">
+                Select one or more products from your cart to continue.
+            </div>
+
+            <!-- Form (visible when selection exists) -->
+            <form id="inquiryForm" class="inquiry-form" novalidate aria-hidden="true">
+                <div class="form-group">
+                    <label for="selectedProducts">Selected Products</label>
+                    <textarea id="selectedProducts" name="selected_products" readonly rows="3" aria-readonly="true"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" name="name" type="text" required placeholder="Your full name" autocomplete="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email"/>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" name="phone" type="tel" required placeholder="+91-XXXXXXXXXX" autocomplete="tel"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company/Organization (optional)</label>
+                        <input id="company" name="company" type="text" placeholder="Your organization (optional)"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inquiryType">Inquiry Type</label>
+                    <select id="inquiryType" name="inquiry_type" required>
+                        <option value="" disabled selected>Select inquiry type</option>
+                        <option value="General Query">General Query</option>
+                        <option value="Bulk Order">Bulk Order</option>
+                        <option value="Custom Requirement">Custom Requirement</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="e.g., Need pricing for 20 units with shipping to Mumbai" required></textarea>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Preferred Contact Method</legend>
+                    <label class="radio"><input type="radio" name="contact_method" value="Email" required> Email</label>
+                    <label class="radio"><input type="radio" name="contact_method" value="Phone" required> Phone</label>
+                </fieldset>
+
+                <label class="checkbox consent">
+                    <input type="checkbox" id="consent" name="consent" value="agreed" required>
+                    <span>I agree to be contacted regarding my inquiry.</span>
+                </label>
+
+                <button type="submit" class="btn-solid" id="submitInquiry">Send Inquiry</button>
+            </form>
+
+            <!-- Summary -->
+            <div id="cartSummary" class="cart-summary" aria-live="polite">
+                <div class="summary-row">
+                    <span>Total Items</span>
+                    <span id="summaryCount">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Estimated Total</span>
+                    <span id="summaryTotal">₹0.00</span>
+                </div>
+                <div class="summary-note">* Informational only — no checkout on this site.</div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Toasts -->
+    <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+    <!-- Page-specific JavaScript -->
+    <script src="/js/cart.js" is:inline></script>
+</Layout>

@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import productsData from '/public/data/products.json';
+import servicesData from '/public/data/services.json';
+import blogData from '/public/data/blog.json';
+
+export const prerender = true;
+
+// Replace the entire getStaticPaths function in src/pages/tag/[slug].astro
+
+export function getStaticPaths() {
+  const allTags = new Map();
+
+  // Helper function to add an item to a standardized tag key
+  const addItemToTag = (tag, item) => {
+    // THIS IS THE FIX: Standardize the tag by converting to lower case before using it as a key.
+    const standardizedTag = tag.toLowerCase();
+
+    if (!allTags.has(standardizedTag)) {
+      // Store the original casing for display purposes, but use the standardized key.
+      allTags.set(standardizedTag, { originalName: tag, items: [] });
+    }
+    allTags.get(standardizedTag).items.push(item);
+  };
+
+  // Process all data files using the same helper function
+  productsData.products.forEach(p => {
+    (p.tags || []).forEach(tag => addItemToTag(tag, { ...p, type: 'Product' }));
+  });
+  
+  servicesData.services.forEach(s => {
+    (s.tags || []).forEach(tag => addItemToTag(tag, { ...s, type: 'Service' }));
+  });
+
+  blogData.articles.forEach(a => {
+    (a.tags || []).forEach(tag => addItemToTag(tag, { ...a, type: 'Article' }));
+  });
+
+  return Array.from(allTags.values()) // Use .values() as we stored an object
+    .filter(({ originalName }) => originalName && originalName.trim() !== '')
+    .map(({ originalName, items }) => {
+      const slug = originalName.toLowerCase().replace(/[\s\/]+/g, '-').replace(/[^a-z0-9-]/g, '');
+      
+      // Check the standardized (lowercase) tag name
+      if (originalName.toLowerCase() === 'filter media calculator') {
+        items.unshift({
+          type: 'Calculator',
+          name: 'Filter Media Calculator',
+          description: 'Calculate the required volume and weight of filter media for your specific tank.',
+          imageUrl: '/images/Background-img/Filter-Media-Calculator.webp'
+        });
+      }
+
+      return {
+        params: { slug },
+        props: { tagName: originalName, taggedItems: items },
+      };
+    });
+}
+
+const { tagName, taggedItems } = Astro.props;
+---
+
+<Layout 
+    title={`Tag: ${tagName}`}
+    description={`Browse all content tagged with "${tagName}". Find related products, services, and articles.`}
+>
+    <section class="shop-hero">
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-overlay"></div>
+        <div class="shop-hero-content">
+            <p class="shop-hero-subtitle" style="margin-bottom: 8px;">Content Tagged With</p>
+            <h1>{tagName}</h1>
+            <div class="breadcrumbs">
+               <a href="/">Home</a><span class="separator">/</span><span class="active">Tags</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="shop-controls">
+            <div class="results-count"></div>
+        </div>
+        <div class="shop-container">
+            <div class="filter-sidebar" id="filterSidebar" style="display:block; max-height:fit-content;">
+                <div class="filter-search">
+                    <input type="text" id="tagSearchInput" placeholder="Search within these results...">
+                </div>
+                <div class="filter-group">
+                    <h3>Content Type</h3>
+                    <div class="filter-options" id="type-filters">
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-product" value="Product" checked>
+                            <label for="filter-product">Products</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-service" value="Service" checked>
+                            <label for="filter-service">Services</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-article" value="Article" checked>
+                            <label for="filter-article">Articles</label>
+                        </div>
+                         <div class="filter-option">
+                            <input type="checkbox" id="filter-calculator" value="Calculator" checked>
+                            <label for="filter-calculator">Tools</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-grid card-grid">
+                {taggedItems.map(item => {
+                    let title = item.name || item.title;
+                    let description = item.description || item.excerpt;
+                    let imageUrl = Array.isArray(item.images) ? item.images[0] : item.imageUrl;
+                    let url = '#';
+                    if (item.type === 'Product') url = `/product/${item.slug}`;
+                    if (item.type === 'Service') url = `/services`;
+                    if (item.type === 'Article') url = `/blog/${item.slug}`;
+                    if (item.type === 'Calculator') url = '/Filter-Media-Calculator';
+
+                    return (
+                        <div class="product-card" data-type={item.type} data-title={title.toLowerCase()} data-desc={description.toLowerCase()}>
+                            <div class="product-image">
+                                <img src={imageUrl || ''} alt={title} loading="lazy" />
+                            </div>
+                            <div class="product-content">
+                                <span class="category-tag">{item.type}</span>
+                                <h3 class="product-name">{title}</h3>
+                                <p class="product-desc">{description}</p>
+                                <div class="product-buttons">
+                                     <a href={url} class="btn-outline-listing">{item.type === 'Calculator' ? 'Open Tool' : 'View Details'}</a>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    </div>
+    
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('tagSearchInput');
+            const typeCheckboxes = document.querySelectorAll('#type-filters input');
+            const allCards = document.querySelectorAll('.product-card');
+            const resultsCountEl = document.querySelector('.results-count');
+
+            function applyFilters() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedTypes = Array.from(typeCheckboxes)
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.value);
+
+                let visibleCount = 0;
+                allCards.forEach(card => {
+                    const type = card.dataset.type;
+                    const title = card.dataset.title;
+                    const desc = card.dataset.desc;
+
+                    const typeMatch = selectedTypes.includes(type);
+                    const searchMatch = title.includes(searchTerm) || desc.includes(searchTerm);
+
+                    if (typeMatch && searchMatch) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                resultsCountEl.textContent = `Showing ${visibleCount} of ${allCards.length} results`;
+            }
+
+            searchInput.addEventListener('input', applyFilters);
+            typeCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
+            applyFilters();
+        });
+    </script>
+</Layout>

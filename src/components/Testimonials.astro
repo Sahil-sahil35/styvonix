@@ -1,0 +1,66 @@
+---
+const { testimonials } = Astro.props;
+---
+
+<section class="testimonials">
+    <div class="container">
+        <div class="testimonials-container">
+            {testimonials.map((testimonial, index) => (
+                <div class={`testimonial-slide ${index === 0 ? 'active' : ''}`}>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">{testimonial.text}</p>
+                        <div class="testimonial-author">{testimonial.author}</div>
+                    </div>
+                </div>
+            ))}
+        </div>
+        <div class="testimonial-dots">
+            {testimonials.map((_, index) => (
+                <span class={`dot ${index === 0 ? 'active' : ''}`} data-slide={index}></span>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    // Client-side functionality only
+    function initTestimonialCarousel() {
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i < index) {
+                    slide.classList.add('prev');
+                }
+            });
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-advance testimonials every 4 seconds
+        setInterval(nextSlide, 4000);
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+    }
+
+    // Initialize when component is mounted
+    document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
+</script>

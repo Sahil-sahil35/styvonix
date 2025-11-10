@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import sitedata from '/public/data/data.json';
+import Testimonials from '../components/Testimonials.astro';
+import product from '/public/data/products.json';
+
+const features = sitedata.features;
+const herodata = sitedata.hero.stats;
+const testimonials = sitedata.testimonials;
+const categories = sitedata.categories;
+const bestSellers = product.products.slice(0, 7);
+
+
+
+---
+
+<Layout 
+    title="Styvonix Future Pvt. Ltd. - Pure Water. Pure Innovation."
+    description="Premium filtration solutions for home, commercial, and industrial needs. Experience the future of clean water technology."
+    keywords="water filtration, filter media, activated carbon, silica sand, water treatment, purification systems, Styvonix"
+>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container"> <!-- Added container for proper padding -->
+            <div class="hero-content">
+                <h1>Styvonix Future Pvt. Ltd.</h1>
+                <h3>Pure Water. Pure Innovation.</h3>
+                <p class="hero-subtitle">Premium filtration solutions for home, commercial, and industrial needs. Experience the future of clean water technology.</p>
+                <div class="hero-buttons">
+                    <a href="#shop" class="btn-primary">Explore Products</a>
+                    <a href="#about" class="btn-secondary">Learn More</a>
+                </div>
+                <div class="hero-stats" id="heroStats">
+                    {
+                    herodata.map((data) => (
+                        <div class="stat-item">
+                            <span class="stat-number">{data.value}</span>
+                            <span class="stat-label">{data.label}</span>
+                        </div>
+                    ))
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Featured Categories</h2>
+            <div class="categories-grid">
+                {
+                    categories.map((category) => (
+                        <div class="category-card"> <a href={`/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                            <div class="category-bg" style={{ backgroundImage: `url(${category.image})` }}></div>
+                            <div class="category-overlay">
+                                <h3 class="category-title">{category.name}</h3>
+                                <p class="category-desc">{category.description}</p>
+                            </div>
+                            </a>
+                        </div>   
+                ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="section products-section" id="shop">
+    <div class="container">
+        <h2 class="section-title">Our Best Sellers</h2>
+        <div class="products-container">
+        <div class="products-scroll">
+            {bestSellers.map(product => (
+            <div class="product-card">
+                <div class="product-image">
+                    <a href={`/product/${product.slug}`}>
+                        <img src={product.images[0]} alt={product.name} />
+                    </a>
+                </div>
+                <div class="product-content">
+                <h3 class="product-name">{product.name}</h3>
+                <p class="product-desc">{product.description}</p>
+                <div class="product-buttons">
+                    <a href={`/product/${product.slug}`} class="btn-outline-listing">
+                    View Details
+                    </a>
+                </div>
+                </div>
+            </div>
+            ))}
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="container">
+        <div class="promo-banner">
+            <div class="promo-bg"></div>
+            <div class="promo-overlay"></div>
+            <div class="promo-content">
+                <h2 class="promo-title">Everything you require at one place!</h2>
+                <a href="/listing" class="btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                {/* Features rendered at BUILD TIME - no JavaScript needed! */}
+                {features.map(feature => (
+                    <div class="feature-card">
+                        <div class="feature-icon">{feature.icon}</div>
+                        <h3 class="feature-title">{feature.title}</h3>
+                        <p class="feature-text">{feature.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <Testimonials testimonials={testimonials} />
+
+    <!-- Page-specific JavaScript -->
+     <script>
+        import { autoScrollProducts } from '/public/js/autoScrollProducts.js';
+        autoScrollProducts();
+    </script>
+    <script src="/js/home.js" is:inline></script>
+</Layout>
