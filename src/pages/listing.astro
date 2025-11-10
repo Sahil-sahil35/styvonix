@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { client } from '../lib/sanityClient';
+import { client, urlFor } from '../lib/sanityClient';
 
 const productsQuery = `*[_type == "product"]`;
 const filtersQuery = `*[_type == "filters"][0]`;
@@ -114,8 +114,8 @@ function renderPrice(p) {
                             
                         >
                             <div class="product-image">
-                                <a href={`/product/${product.slug}`}>
-                                <img src={product.images[0] || ''} alt={product.name} loading="lazy" />
+                                <a href={`/product/${product.slug.current}`}>
+                                <img src={urlFor(product.images[0]).url()} alt={product.name} loading="lazy" />
                                 </a>
                             </div>
                             <div class="product-content">
@@ -126,7 +126,7 @@ function renderPrice(p) {
                                     {isInStock ? 'In Stock' : 'Out of Stock'}
                                 </div>
                                 <div class="product-buttons">
-                                    <a href={`/product/${product.slug}`} class="btn-outline-listing">View Details</a>
+                                    <a href={`/product/${product.slug.current}`} class="btn-outline-listing">View Details</a>
                                     <button
                                         class="btn-solid-listing add-to-cart"
                                         disabled={!isInStock}

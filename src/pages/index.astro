@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Testimonials from '../components/Testimonials.astro';
-import { client } from '../lib/sanityClient';
+import { client, urlFor } from '../lib/sanityClient';
 
 const siteDataQuery = `*[_type == "site"][0]`;
 const featuresQuery = `*[_type == "features"][0]`;
@@ -64,7 +64,7 @@ const categories = categoriesData.items;
                 {
                     categories.map((category) => (
                         <div class="category-card"> <a href={`/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                            <div class="category-bg" style={{ backgroundImage: `url(${category.image})` }}></div>
+                            <div class="category-bg" style={{ backgroundImage: `url(${urlFor(category.image).url()})` }}></div>
                             <div class="category-overlay">
                                 <h3 class="category-title">{category.name}</h3>
                                 <p class="category-desc">{category.description}</p>
@@ -86,8 +86,8 @@ const categories = categoriesData.items;
             {bestSellers.map(product => (
             <div class="product-card">
                 <div class="product-image">
-                    <a href={`/product/${product.slug}`}>
-                        <img src={product.images[0]} alt={product.name} />
+                    <a href={`/product/${product.slug.current}`}>
+                        <img src={urlFor(product.images[0]).url()} alt={product.name} />
                     </a>
                 </div>
                 <div class="product-content">
