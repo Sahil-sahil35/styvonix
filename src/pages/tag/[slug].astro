@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { client } from '../../lib/sanityClient';
+import { client, urlFor } from '../../lib/sanityClient';
 
 export const prerender = true;
 
@@ -119,11 +119,11 @@ const { tagName, taggedItems } = Astro.props;
                 {taggedItems.map(item => {
                     let title = item.name || item.title;
                     let description = item.description || item.excerpt;
-                    let imageUrl = Array.isArray(item.images) ? item.images[0] : item.imageUrl;
+                    let imageUrl = Array.isArray(item.images) ? urlFor(item.images[0]).url() : (item.imageUrl ? urlFor(item.imageUrl).url() : '');
                     let url = '#';
-                    if (item.type === 'Product') url = `/product/${item.slug}`;
+                    if (item.type === 'Product') url = `/product/${item.slug.current}`;
                     if (item.type === 'Service') url = `/services`;
-                    if (item.type === 'Article') url = `/blog/${item.slug}`;
+                    if (item.type === 'Article') url = `/blog/${item.slug.current}`;
                     if (item.type === 'Calculator') url = '/Filter-Media-Calculator';
 
                     return (

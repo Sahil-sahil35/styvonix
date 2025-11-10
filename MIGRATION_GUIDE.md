@@ -60,7 +60,19 @@ Now we'll provide the credentials to your Astro application.
     PUBLIC_SANITY_API_TOKEN="<your-read-only-api-token>"
     ```
 
-## Step 6: Add Your Content to Sanity
+## Step 6: Authorize Your Website to Access Sanity (CORS)
+
+This is a critical security step that tells Sanity it's okay for your website to request images and data.
+
+1.  Go back to your Sanity project management page: [manage.sanity.io](https://manage.sanity.io).
+2.  Select your project and go to the **API** tab.
+3.  Find the **CORS origins** section.
+4.  Click **Add CORS origin**.
+5.  In the **Origin** field, enter your Astro development server's address: `http://localhost:4321`.
+6.  Leave the "Allow credentials" checkbox **unchecked**.
+7.  Click **Save**. This will allow your local website to display images from Sanity. You may need to add your production URL here as well once you deploy your site.
+
+## Step 7: Add Your Content to Sanity
 
 Your Sanity Studio is now live and connected, but your database is empty.
 
@@ -68,7 +80,7 @@ Your Sanity Studio is now live and connected, but your database is empty.
 2.  You will see all the content types we created (Product, Category, etc.) on the left-hand side.
 3.  Click on a type and then click the **Create new** button to start adding your content. You can copy and paste the content from the original JSON files located in `public/data/`.
 
-## Step 7: Run Your Astro Website
+## Step 8: Run Your Astro Website
 
 You're all set! Now you can run your Astro site, which will fetch its data from Sanity.
 
