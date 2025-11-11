@@ -58,8 +58,8 @@ const isFilterMedia = Array.isArray(product.category)
   : String(product.category || "").toLowerCase() === "filter media";
 
 // Safe helpers
-const firstImage = Array.isArray(product.images) && product.images.length ? urlFor(product.images[0]).url() : "";
-const images = Array.isArray(product.images) ? product.images.map(image => urlFor(image).url()) : [];
+const firstImage = Array.isArray(product.images) && product.images.length > 0 && product.images[0].asset ? urlFor(product.images[0]).url() : "";
+const images = Array.isArray(product.images) ? product.images.filter(image => image.asset).map(image => urlFor(image).url()) : [];
 const specsEntries = product.specs ? Object.entries(product.specs) : [];
 const documents = Array.isArray(product.documents) ? product.documents : [];
 const tags = Array.isArray(product.tags) ? product.tags : [];
@@ -181,7 +181,7 @@ const tags = Array.isArray(product.tags) ? product.tags : [];
           {similar.map((sp) => (
             <div class="product-card">
               <div class="product-image">
-                <img src={sp.images && sp.images.length > 0 ? urlFor(sp.images[0]).url() : ''} alt={sp.name} />
+                <img src={sp.images && sp.images.length > 0 && sp.images[0].asset ? urlFor(sp.images[0]).url() : ''} alt={sp.name} />
               </div>
               <div class="product-content">
                 <h3 class="product-name">{sp.name}</h3>

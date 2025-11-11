@@ -17,7 +17,7 @@ const { slug } = Astro.params;
 const articleQuery = `*[_type == "blog" && slug.current == $slug][0]`;
 const article = await client.fetch(articleQuery, { slug });
 
-const mainImage = urlFor(article.images[0]).url();
+const mainImage = article.images && article.images.length > 0 && article.images[0].asset ? urlFor(article.images[0]).url() : '';
 ---
 
 <Layout 
@@ -44,7 +44,7 @@ const mainImage = urlFor(article.images[0]).url();
     <div class="container article-container">
         <div class="article-visual-pane">
             {article.contentSections.map((section, index) => {
-                const imageSrc = urlFor(article.images[section.imageIndex]).url();
+                const imageSrc = article.images && article.images.length > section.imageIndex && article.images[section.imageIndex].asset ? urlFor(article.images[section.imageIndex]).url() : '';
                 return (
                     <img 
                         src={imageSrc} 
@@ -58,7 +58,7 @@ const mainImage = urlFor(article.images[0]).url();
 
         <div class="article-content-pane">
             {article.contentSections.map((section, index) => {
-                const imageSrc = urlFor(article.images[section.imageIndex]).url();
+                const imageSrc = article.images && article.images.length > section.imageIndex && article.images[section.imageIndex].asset ? urlFor(article.images[section.imageIndex]).url() : '';
                 return (
                     <section class="content-section" data-image-index={section.imageIndex}>
                         <img 
