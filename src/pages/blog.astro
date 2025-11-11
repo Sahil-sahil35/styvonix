@@ -31,7 +31,7 @@ const nonFeaturedArticles = allArticles.filter(a => !a.featured);
             {featuredArticle && (
                 <div class="featured-card">
                   <div class="featured-image">
-                    <img src={urlFor(featuredArticle.images[0]).url()} alt={featuredArticle.title} loading="eager"/>
+                    <img src={featuredArticle.images && featuredArticle.images.length > 0 && featuredArticle.images[0].asset ? urlFor(featuredArticle.images[0]).url() : ''} alt={featuredArticle.title} loading="eager"/>
                   </div>
                   <div class="featured-content">
                     <span class="category-tag">{featuredArticle.category}</span>
@@ -72,7 +72,7 @@ const nonFeaturedArticles = allArticles.filter(a => !a.featured);
                             style="display: none;"
                          >
                             <div class="blog-card-image">
-                              <img src={urlFor(article.images[0]).url()} alt={article.title} loading="lazy"/>
+                              <img src={article.images && article.images.length > 0 && article.images[0].asset ? urlFor(article.images[0]).url() : ''} alt={article.title} loading="lazy"/>
                             </div>
                             <div class="blog-card-content">
                               <span class="category-tag">{article.category}</span>

@@ -41,7 +41,7 @@ const allServices = await client.fetch(servicesQuery);
                 style="display: none;"
             >
                 <div class="service-card-image">
-                    <img src={urlFor(service.imageUrl).url()} alt={service.title} loading="lazy" />
+                    <img src={service.imageUrl && service.imageUrl.asset ? urlFor(service.imageUrl).url() : ''} alt={service.title} loading="lazy" />
                 </div>
                 <div class="service-card-content">
                     <h3>{service.title}</h3>
