@@ -1,109 +1,32 @@
-// --- GLOBAL DATA STORE ---
-let allSiteProducts = [];
-let siteData = {};
+// The `window.allSiteData` and `window.allSiteProducts` global variables are now
+// defined in an inline script in `src/layouts/Layout.astro`, populated with
+// data fetched from Sanity on the server.
 
-// --- GLOBAL MODAL LOGIC ---
-function openContactModal(subject = "General Inquiry") {
-    const modal = document.getElementById('contactModal');
-    const modalSubject = document.getElementById('modalInquirySubject');
-    if (modal && modalSubject) {
-        modalSubject.textContent = subject;
-        modal.style.display = 'block';
-        document.body.classList.add('no-scroll');
-        modal.querySelector('.close-modal').addEventListener('click', closeContactModal);
-    }
+// =================================================================================
+// INITIALIZATION FUNCTIONS
+// These functions are called by other scripts (e.g., home.js) or on DOMContentLoaded
+// to populate the UI with the global data.
+// =================================================================================
+
+function initProducts(products) {
+    // This function might be used by other pages, so we keep it.
+    // It's a placeholder if no other script uses it directly.
 }
 
-function closeContactModal() {
-    const modal = document.getElementById('contactModal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.classList.remove('no-scroll');
-    }
+function initCategories(categories) {
+    // This function might be used by other pages, so we keep it.
 }
 
-// --- SHARED FUNCTIONALITY ---
-async function fetchGlobalData(basePath = '/') {
-    if (allSiteProducts.length > 0 && Object.keys(siteData).length > 0) return;
-    try {
-        const [productsResponse, siteDataResponse] = await Promise.all([
-            fetch(`${basePath}data/products.json`),
-            fetch(`${basePath}data/data.json`)
-        ]);
-        const productsData = await productsResponse.json();
-        allSiteProducts = productsData.products || [];
-        siteData = await siteDataResponse.json();
-    } catch (error) {
-        console.error('Error fetching global data:', error);
-    }
+function initFeatures(features) {
+    // This function might be used by other pages, so we keep it.
 }
 
-// Replace the existing function in public/js/main.js
-function createCategoryDropdown() {
-    if (!siteData.categories) {
-        console.error("Category data not available to build dropdown.");
-        return;
-    }
-    const categories = siteData.categories.map(c => c.name);
-
-    const generateLinks = () => {
-        return categories.map(category => {
-            // This line automatically converts spaces to hyphens for the URL
-            const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
-            const categoryUrl = `/category/${categorySlug}`;
-            return `<a href="${categoryUrl}">${category}</a>`;
-        }).join('');
-    };
-
-    const desktopDropdown = document.querySelector('.desktop-categories-dropdown');
-    if (desktopDropdown) {
-        desktopDropdown.innerHTML = generateLinks();
-    }
-    
-    const mobileDropdown = document.querySelector('.mobile-categories-dropdown');
-    if (mobileDropdown) {
-        mobileDropdown.innerHTML = generateLinks();
-    }
-    
-    const mobileCategoryToggle = document.querySelector('.mobile-category-toggle');
-    if (mobileCategoryToggle && mobileDropdown) {
-        if (!mobileCategoryToggle.dataset.listenerAttached) {
-            mobileCategoryToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                mobileDropdown.classList.toggle('active');
-                this.classList.toggle('open');
-            });
-            mobileCategoryToggle.dataset.listenerAttached = 'true';
-        }
-    }
-}
-function openMapModal() {
-    // PASTE the <iframe> code from Google Maps here
-    const mapIframeHtml = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3221.828880290941!2d77.1667795798199!3d28.695372718409665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0216273b1be3%3A0x57e9e3fd0194da4a!2sBasment%2C%20C%202%2C%2013%2C%20Ashok%20Vihar%20II%2C%20Pocket%20C%202%2C%20Phase%20II%2C%20Ashok%20Vihar%2C%20New%20Delhi%2C%20Delhi%2C%20110052!5e1!3m2!1sen!2sin!4v1758702313997!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
-
-    // This part stays the same
-    mapContainer.innerHTML = mapIframeHtml;
-    mapModal.style.display = 'block';
-    document.body.classList.add('no-scroll');
-    mapModal.querySelector('.close-map-modal').addEventListener('click', closeMapModal);
-}
-
-
-function closeMapModal() {
-    mapModal.style.display = 'none';
-    mapContainer.innerHTML = ''; // Clear the iframe to stop it loading
-    document.body.classList.remove('no-scroll');
-}  
-
-
-// Replace the entire initFooter function in public/js/main.js with this one.
-function initFooter() {
-    if (!siteData.footer || !siteData.site) return;
-    const { footer: footerData, site: { contact: contactData } } = siteData;
+function initFooter(footerData, contactData) {
     const footerContent = document.querySelector('.footer-content');
     if (!footerContent) return;
-    
+
     const sections = footerContent.querySelectorAll('.footer-section');
+    if (sections.length < 3) return;
 
     // Section 1: Shop Links
     if (sections[0] && footerData.shopLinks) {
@@ -136,13 +59,65 @@ function initFooter() {
             <p id="footerAddress" >${contactData.address}</p>
             <p>${contactData.hours}</p>`;
 
-             document.getElementById('footerAddress').addEventListener('click', openMapModal);
+        const footerAddress = document.getElementById('footerAddress');
+        if (footerAddress) {
+            footerAddress.addEventListener('click', openMapModal);
+        }
     }
 
     const footerBottom = document.querySelector('.footer-bottom');
     if (footerBottom) {
         footerBottom.innerHTML = `<p>&copy; ${new Date().getFullYear()} Styvonix Future Pvt. Ltd. All rights reserved.</p>`;
     }
+}
+
+
+function createCategoryDropdown() {
+    if (typeof window.allSiteData === 'undefined' || !window.allSiteData.categories) {
+        console.error("Category data is not available on the window object.");
+        return;
+    }
+
+    const categories = window.allSiteData.categories || [];
+    const desktopContainer = document.querySelector('.desktop-categories-dropdown');
+    const mobileContainer = document.querySelector('.mobile-categories-dropdown');
+
+    if (!desktopContainer || !mobileContainer) return;
+
+    const categoryLinks = categories.map(category => {
+        const slug = category.name.toLowerCase().replace(/\s+/g, '-');
+        return `<a href="/category/${slug}">${category.name}</a>`;
+    }).join('');
+
+    desktopContainer.innerHTML = categoryLinks;
+    mobileContainer.innerHTML = categoryLinks;
+}
+
+// =================================================================================
+// UTILITY FUNCTIONS
+// =================================================================================
+
+function openContactModal(subject = '') {
+    const modal = document.getElementById('contactModal');
+    const subjectSpan = document.getElementById('modalInquirySubject');
+    if (modal && subjectSpan) {
+        subjectSpan.textContent = subject ? `Inquiry about ${subject}` : 'Your Inquiry';
+        modal.style.display = 'block';
+        document.body.classList.add('no-scroll');
+    }
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+function openMapModal() {
+    const modal = document.getElementById('mapModal');
+    if(modal) modal.style.display = 'block';
 }
 
 function showToast(message) {
@@ -155,46 +130,68 @@ function showToast(message) {
 }
 
 function addToCart(productId, buttonElement) {
-    const product = allSiteProducts.find(p => p.id === productId);
+    if (typeof window.allSiteProducts === 'undefined') return;
+    const product = window.allSiteProducts.find(p => p.id === productId);
     if (!product) { return; }
-    // FIX: Added 'negotiable: product.negotiable' to the item object
+
+    const imageUrl = (product.images && product.images.length > 0 && product.images[0].asset) ? product.images[0].asset.url : '';
+
     const item = { 
         id: product.id, 
         name: product.name, 
         price: (product.salePrice ?? product.price) || 0, 
         qty: 1, 
-        thumbnail: product.images[0] || '', 
-        specs: [ product.specs?.meshSize ? `Mesh: ${product.specs.meshSize}`: null, product.specs?.type ? `Type: ${product.specs.type}`: null ].filter(Boolean),
+        thumbnail: imageUrl,
+        specs: [ product.specs?.meshSize ? `Mesh: ${product.specs.meshSize}`: null ].filter(Boolean),
         negotiable: product.negotiable || false,
-        slug: product.slug // Pass slug for the link in the cart
+        slug: product.slug.current
     };
+
     let cart = [];
     try { cart = JSON.parse(sessionStorage.getItem('cartItems') || '[]'); } catch { cart = []; }
+
     const existingIndex = cart.findIndex(it => it.id === item.id);
-    if (existingIndex >= 0) { cart[existingIndex].qty += 1; } else { cart.push(item); }
+    if (existingIndex >= 0) {
+        cart[existingIndex].qty += 1;
+    } else {
+        cart.push(item);
+    }
+
     sessionStorage.setItem('cartItems', JSON.stringify(cart));
     const totalCount = cart.reduce((n, it) => n + it.qty, 0);
     sessionStorage.setItem('cartCount', String(totalCount));
+
     const cartCountBadge = document.querySelector('.cart-count');
     if (cartCountBadge) cartCountBadge.textContent = String(totalCount);
+
     showToast('Added to cart');
+
     if (buttonElement) {
         const originalText = buttonElement.textContent;
         buttonElement.textContent = 'Added!';
         buttonElement.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
-        setTimeout(() => { buttonElement.textContent = originalText; buttonElement.style.background = ''; }, 1200);
+        setTimeout(() => {
+            buttonElement.textContent = originalText;
+            buttonElement.style.background = '';
+        }, 1200);
     }
 }
 
+// =================================================================================
+// DOMContentLoaded EVENT LISTENER
+// Main entry point for client-side script execution.
+// =================================================================================
 
-
-document.addEventListener('DOMContentLoaded', async function() {
-    await fetchGlobalData('/');
+document.addEventListener('DOMContentLoaded', function() {
+    // Data is now globally available on the `window` object.
+    // We can now safely call all initialization functions.
     
-    createCategoryDropdown();
-    initFooter();
+    if (window.allSiteData) {
+        createCategoryDropdown();
+        initFooter(window.allSiteData.footer, window.allSiteData.contact);
+    }
 
-    // --- START: EVENT LISTENERS ---
+    // --- EVENT LISTENERS ---
     const header = document.getElementById('header');
     if (header) window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
 
@@ -214,13 +211,20 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
-    // Cart Button & Count
-    const cartBtn = document.querySelector('.cart-btn');
-    if (cartBtn) {
-        cartBtn.addEventListener('click', () => {
-            window.location.href = '/cart';
+    // Mobile Category Toggle
+    const mobileCategoryToggle = document.querySelector('.mobile-category-toggle');
+    if (mobileCategoryToggle) {
+        mobileCategoryToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const dropdown = document.querySelector('.mobile-categories-dropdown');
+            if (dropdown) dropdown.classList.toggle('active');
         });
     }
+
+    // Cart Button & Count
+    const cartBtn = document.querySelector('.cart-btn');
+    if (cartBtn) cartBtn.addEventListener('click', () => { window.location.href = '/cart'; });
+
     const cartCountBadge = document.querySelector('.cart-count');
     if (cartCountBadge) cartCountBadge.textContent = sessionStorage.getItem('cartCount') || '0';
 
@@ -232,11 +236,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
     
-    // --- START: MODAL FORM SUBMISSION FIX ---
+    // Contact Modal Logic
     const contactModal = document.getElementById('contactModal');
     const contactForm = document.getElementById('contactForm');
     const closeModalBtn = contactModal ? contactModal.querySelector('.close-modal') : null;
-
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeContactModal);
     if (contactModal) window.addEventListener('click', (event) => { if (event.target === contactModal) closeContactModal(); });
     
@@ -261,11 +264,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                     form.reset();
                     closeContactModal();
                 } else {
-                    return response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            throw new Error(data["errors"].map(error => error["message"]).join(", "));
-                        }
-                        throw new Error('Oops! There was a problem submitting your form');
+                    response.json().then(data => {
+                        const errorMsg = data.errors ? data.errors.map(e => e.message).join(', ') : 'An unknown error occurred.';
+                        throw new Error(errorMsg);
                     });
                 }
             }).catch(error => {
@@ -276,7 +277,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         });
     }
-    // --- END: MODAL FORM SUBMISSION FIX ---
 
     // Search Modal
     const searchModal = document.getElementById('searchModal');
@@ -284,22 +284,35 @@ document.addEventListener('DOMContentLoaded', async function() {
     const searchResults = document.getElementById('searchResults');
     function openSearchModal() { if (searchModal) { searchModal.style.display = 'block'; if (searchInput) searchInput.focus(); document.body.classList.add('no-scroll'); } }
     function closeSearchModal() { if (searchModal) { searchModal.style.display = 'none'; if (searchInput) searchInput.value = ''; if (searchResults) searchResults.innerHTML = ''; document.body.classList.remove('no-scroll'); } }
+
     document.querySelectorAll('.search-btn').forEach(btn => btn.addEventListener('click', openSearchModal));
     const closeSearchBtn = document.querySelector('.close-search');
-    if(closeSearchBtn) closeSearchBtn.addEventListener('click', closeSearchModal);
-    if (searchInput && searchResults) {
+    if (closeSearchBtn) closeSearchBtn.addEventListener('click', closeSearchModal);
+
+    if (searchInput && searchResults && typeof window.allSiteProducts !== 'undefined') {
         searchInput.addEventListener('input', function() {
             const term = this.value.toLowerCase().trim();
             searchResults.innerHTML = '';
             if (term.length < 2) return;
-            const filtered = allSiteProducts.filter(p => p.name.toLowerCase().includes(term)).slice(0, 10);
-            if(filtered.length === 0) { searchResults.innerHTML = `<div class="search-result-item">No products found</div>`; return; }
+
+            const filtered = window.allSiteProducts.filter(p => p.name.toLowerCase().includes(term)).slice(0, 10);
+
+            if(filtered.length === 0) {
+                searchResults.innerHTML = `<div class="search-result-item">No products found</div>`;
+                return;
+            }
+
             filtered.forEach(product => {
                 const item = document.createElement('div');
                 item.className = 'search-result-item';
-                const imagePath = product.images[0] || '';
-                item.innerHTML = `<div style="display: flex; align-items: center;"><img src="${imagePath}" alt="${product.name}" style="width: 50px; height: 50px; margin-right: 15px; object-fit: cover;"><div><div class="search-result-name">${product.name}</div></div></div>`;
-                item.addEventListener('click', () => { window.location.href = `/product/${product.slug}`; });
+
+                const imageUrl = (product.images && product.images.length > 0 && product.images[0].asset) ? product.images[0].asset.url : '';
+
+                item.innerHTML = `<div style="display: flex; align-items: center;">
+                                    <img src="${imageUrl}" alt="${product.name}" style="width: 50px; height: 50px; margin-right: 15px; object-fit: cover;">
+                                    <div><div class="search-result-name">${product.name}</div></div>
+                                  </div>`;
+                item.addEventListener('click', () => { window.location.href = `/product/${product.slug.current}`; });
                 searchResults.appendChild(item);
             });
         });
@@ -307,13 +320,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     window.addEventListener('click', (event) => { if (event.target === searchModal) closeSearchModal(); });
 
     // Back to Top Button
-     const backToTopButton = document.getElementById("backToTopBtn");
+    const backToTopButton = document.getElementById("backToTopBtn");
     if (backToTopButton) {
-        const fabContainer = backToTopButton.parentElement; // Get the .fab-container
+        const fabContainer = backToTopButton.parentElement;
         window.onscroll = function() {
             const isScrolled = document.body.scrollTop > 100 || document.documentElement.scrollTop > 100;
             backToTopButton.style.display = isScrolled ? "block" : "none";
-            // ADDED THIS LINE to toggle a class on the parent container
             if (fabContainer) {
                 fabContainer.classList.toggle('btt-hidden', !isScrolled);
             }
@@ -322,7 +334,4 @@ document.addEventListener('DOMContentLoaded', async function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-    // --- END: BACK TO TOP BUTTON
- 
-
 });
