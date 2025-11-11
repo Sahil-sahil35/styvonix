@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import blogData from '/public/data/blog.json';
+import { client, urlFor } from '../lib/sanityClient';
+import { format } from 'date-fns';
 
-const allArticles = blogData.articles;
+const articlesQuery = `*[_type == "blog"] | order(date desc)`;
+const allArticles = await client.fetch(articlesQuery);
+
 const featuredArticle = allArticles.find(a => a.featured);
 const nonFeaturedArticles = allArticles.filter(a => !a.featured);
 ---
@@ -28,17 +31,17 @@ const nonFeaturedArticles = allArticles.filter(a => !a.featured);
             {featuredArticle && (
                 <div class="featured-card">
                   <div class="featured-image">
-                    <img src={featuredArticle.images[0]} alt={featuredArticle.title} loading="eager"/>
+                    <img src={urlFor(featuredArticle.images[0]).url()} alt={featuredArticle.title} loading="eager"/>
                   </div>
                   <div class="featured-content">
                     <span class="category-tag">{featuredArticle.category}</span>
                     <h2>{featuredArticle.title}</h2>
                     <p class="featured-excerpt">{featuredArticle.excerpt}</p>
                     <div class="article-meta">
-                      <span class="date">{featuredArticle.date}</span>
+                      <span class="date">{format(new Date(featuredArticle.date), 'MMMM dd, yyyy')}</span>
                       <span class="read-time">{featuredArticle.readTime}</span>
                     </div>
-                    <a href={`/blog/${featuredArticle.slug}`} class="read-more">Read More →</a>
+                    <a href={`/blog/${featuredArticle.slug.current}`} class="read-more">Read More →</a>
                   </div>
                 </div>
             )}
@@ -69,17 +72,17 @@ const nonFeaturedArticles = allArticles.filter(a => !a.featured);
                             style="display: none;"
                          >
                             <div class="blog-card-image">
-                              <img src={article.images[0]} alt={article.title} loading="lazy"/>
+                              <img src={urlFor(article.images[0]).url()} alt={article.title} loading="lazy"/>
                             </div>
                             <div class="blog-card-content">
                               <span class="category-tag">{article.category}</span>
                               <h3>{article.title}</h3>
                               <p class="blog-excerpt">{article.excerpt}</p>
                               <div class="article-meta">
-                                <span class="date">{article.date}</span>
+                                <span class="date">{format(new Date(article.date), 'MMMM dd, yyyy')}</span>
                                 <span class="read-time">{article.readTime}</span>
                               </div>
-                              <a href={`/blog/${article.slug}`} class="read-more">Read More →</a>
+                              <a href={`/blog/${article.slug.current}`} class="read-more">Read More →</a>
                             </div>
                         </article>
                     ))}
