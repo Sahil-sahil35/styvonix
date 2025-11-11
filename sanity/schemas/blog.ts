@@ -58,6 +58,9 @@ export default {
       title: 'Tags',
       type: 'array',
       of: [{type: 'string'}],
+      options: {
+        layout: 'tags',
+      },
     },
     {
       name: 'contentSections',

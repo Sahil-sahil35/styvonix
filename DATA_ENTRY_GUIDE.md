@@ -36,7 +36,7 @@ Navigate to the **Product** content type in your Studio. For each product in you
 | `videoUrl`                          | `Video URL`                 | Paste the video URL if one exists.                                                                        |
 | `specs`                             | `Specs`                     | Fill in each of the specification fields (Mesh Size, Iodine Number, etc.) from the `specs` object.        |
 | `documents`                         | `Documents`                 | For each document, click **Add item** and enter the `name` and `url`.                                     |
-| `tags`                              | `Tags`                      | Add each tag as a new item in the list.                                                                   |
+| `tags`                              | `Tags`                      | Type your tags here. You can press Enter, Tab, or type a comma (`,`) to add a new tag. You can also paste in a comma-separated list of tags. |
 
 ---
 
@@ -55,7 +55,7 @@ Navigate to the **Blog** content type in your Studio. For each article in `publi
 | `excerpt`                           | `Excerpt`                   | Copy and paste the short excerpt.                                                                          |
 | `date`                              | `Date`                      | Use the date picker to select the publication date.                                                        |
 | `readTime`                          | `Read Time`                 | Copy and paste the read time (e.g., "12 min read").                                                        |
-| `tags`                              | `Tags`                      | Add each tag as a new item.                                                                                |
+| `tags`                              | `Tags`                      | Type your tags here. You can press Enter, Tab, or type a comma (`,`) to add a new tag. You can also paste in a comma-separated list of tags. |
 | `contentSections`                   | `Content Sections`          | For each section, click **Add item**. Enter the `imageIndex` (e.g., 0 for the first image) and the `html`. |
 
 ---
@@ -70,7 +70,7 @@ Navigate to the **Services** content type in your Studio. For each service in `p
 | `title`                             | `Title`                     | Copy and paste the service title.                                                |
 | `excerpt`                           | `Excerpt`                   | Copy and paste the excerpt text.                                                 |
 | `imageUrl`                          | `Image URL`                 | Upload the corresponding image from your `public/images/Services/` folder.       |
-| `tags`                              | `Tags`                      | Add each tag as a new item.                                                      |
+| `tags`                              | `Tags`                      | Type your tags here. You can press Enter, Tab, or type a comma (`,`) to add a new tag. You can also paste in a comma-separated list of tags. |
 
 ---
 

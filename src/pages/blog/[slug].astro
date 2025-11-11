@@ -1,18 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import articlesData from '/public/data/blog.json';
+import { client, urlFor } from '../../lib/sanityClient';
+import { format } from 'date-fns';
 
 export const prerender = true;
 
-export function getStaticPaths() {
-  return articlesData.articles.map(article => ({
+export async function getStaticPaths() {
+  const query = `*[_type == "blog" && defined(slug.current)]{ "slug": slug.current }`;
+  const articles = await client.fetch(query);
+  return articles.map(article => ({
     params: { slug: article.slug },
-    props: { article },
   }));
 }
 
-const { article } = Astro.props;
-const mainImage = article.images[0];
+const { slug } = Astro.params;
+const articleQuery = `*[_type == "blog" && slug.current == $slug][0]`;
+const article = await client.fetch(articleQuery, { slug });
+
+const mainImage = urlFor(article.images[0]).url();
 ---
 
 <Layout 
@@ -27,7 +32,7 @@ const mainImage = article.images[0];
             <h1 class="blog-title">{article.title}</h1>
             <div class="article-meta" style="color: var(--text-muted); justify-content: center;">
               <span class="category-tag">{article.category}</span>
-              <span class="date">{article.date}</span>
+              <span class="date">{format(new Date(article.date), 'MMMM dd, yyyy')}</span>
               <span class="read-time">{article.readTime}</span>
             </div>
             <div class="breadcrumb" aria-label="Breadcrumb">
@@ -39,7 +44,7 @@ const mainImage = article.images[0];
     <div class="container article-container">
         <div class="article-visual-pane">
             {article.contentSections.map((section, index) => {
-                const imageSrc = article.images[section.imageIndex];
+                const imageSrc = urlFor(article.images[section.imageIndex]).url();
                 return (
                     <img 
                         src={imageSrc} 
@@ -53,7 +58,7 @@ const mainImage = article.images[0];
 
         <div class="article-content-pane">
             {article.contentSections.map((section, index) => {
-                const imageSrc = article.images[section.imageIndex];
+                const imageSrc = urlFor(article.images[section.imageIndex]).url();
                 return (
                     <section class="content-section" data-image-index={section.imageIndex}>
                         <img 

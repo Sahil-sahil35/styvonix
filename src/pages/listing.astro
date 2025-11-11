@@ -115,7 +115,7 @@ function renderPrice(p) {
                         >
                             <div class="product-image">
                                 <a href={`/product/${product.slug.current}`}>
-                                <img src={urlFor(product.images[0]).url()} alt={product.name} loading="lazy" />
+                                    <img src={product.images && product.images.length > 0 ? urlFor(product.images[0]).url() : ''} alt={product.name} loading="lazy" />
                                 </a>
                             </div>
                             <div class="product-content">

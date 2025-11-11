@@ -1,8 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import servicesData from '/public/data/services.json';
+import { client, urlFor } from '../lib/sanityClient';
 
-const allServices = servicesData.services || [];
+const servicesQuery = `*[_type == "services"]`;
+const allServices = await client.fetch(servicesQuery);
 ---
 
 <Layout 
@@ -40,7 +41,7 @@ const allServices = servicesData.services || [];
                 style="display: none;"
             >
                 <div class="service-card-image">
-                    <img src={service.imageUrl} alt={service.title} loading="lazy" />
+                    <img src={urlFor(service.imageUrl).url()} alt={service.title} loading="lazy" />
                 </div>
                 <div class="service-card-content">
                     <h3>{service.title}</h3>
